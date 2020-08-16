@@ -24,11 +24,11 @@ import {
 	ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { provider } from '../common/service/ethService';
+import { alchemy_provider } from '../common/service/ethService';
 
 export default function App() {
 	useEffect(() => {
-		provider.eth.getBlock('latest').then(console.log);
+		alchemy_provider.eth.getBlock('latest').then(console.log);
 	});
 
 	return (
