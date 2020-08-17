@@ -32,6 +32,7 @@ import {
 export default function App() {
 	const [wallet, setWallet] = useState(null);
 	useEffect(() => {
+		currentBlock().then(block => console.log(block));
 		console.log(privateToWallet());
 		console.log(createWallet());
 	});
