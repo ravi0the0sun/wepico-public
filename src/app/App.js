@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-import '../../shim';
 import React, { useState, useEffect } from 'react';
 import {
 	SafeAreaView,
