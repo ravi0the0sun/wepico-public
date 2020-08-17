@@ -31,7 +31,10 @@ import {
 
 export default function App() {
 	const [wallet, setWallet] = useState(null);
-	useEffect(() => {});
+	useEffect(() => {
+		console.log(privateToWallet());
+		console.log(createWallet());
+	});
 	return (
 		<>
 			<StatusBar barStyle="dark-content" />
