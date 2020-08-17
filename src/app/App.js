@@ -24,12 +24,14 @@ import {
 	ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { alchemy_provider } from '../common/service/ethService';
+import { createWallet } from '../common/service/ethService';
 
 export default function App() {
+	const [wallet, setWallet] = useState(null)
 	useEffect(() => {
-		alchemy_provider.eth.getBlock('latest').then(console.log);
-	});
+		setWallet(createWallet());
+		console.log(wallet);
+	},[wallet]);
 
 	return (
 		<>
