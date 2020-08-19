@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@tradle/react-native-http": "^2.0.1",
+		"@truffle/hdwallet-provider": "^1.0.42",
 		"assert": "^1.5.0",
 		"base-64": "^0.1.0",
 		"browserify-zlib": "^0.1.4",
