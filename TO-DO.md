@@ -17,10 +17,10 @@
 - Show gas prices 
 
 # API references 
-[Web3](https://web3js.readthedocs.io/en/v1.2.11/index.html)
-[React Navigation](https://reactnavigation.org/)
-[AsyncStorage](https://react-native-community.github.io/async-storage/)
-[react-native-qrcode-svg](https://www.npmjs.com/package/react-native-qrcode-svg)
-[react-native-radiobuttons](https://www.npmjs.com/package/react-native-qrcode-svg)
-[react-native-qrcode-scanner](https://www.npmjs.com/package/react-native-qrcode-scanner)
-[react-native-permission](https://www.npmjs.com/package/react-native-permissions)
+[Web3](https://web3js.readthedocs.io/en/v1.2.11/index.html)<br/>
+[React Navigation](https://reactnavigation.org/)<br/>
+[AsyncStorage](https://react-native-community.github.io/async-storage/)<br/>
+[react-native-qrcode-svg](https://www.npmjs.com/package/react-native-qrcode-svg)<br/>
+[react-native-radiobuttons](https://www.npmjs.com/package/react-native-qrcode-svg)<br/>
+[react-native-qrcode-scanner](https://www.npmjs.com/package/react-native-qrcode-scanner)<br/>
+[react-native-permission](https://www.npmjs.com/package/react-native-permissions)<br/>
