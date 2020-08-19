@@ -31,6 +31,7 @@ import {
 } from '../common/service/ethService';
 
 export default function App() {
+	const [walletList, setWalletList] = useState([]);
 	const [wallet, setWallet] = useState(null);
 	function generateWallet() {
 		setWallet(createWallet());
@@ -38,8 +39,9 @@ export default function App() {
 	if (!wallet) {
 		return (
 			<View style={styles.container}>
-				<Button onPress={generateWallet} title="Create A New Wallet"/>
-				<Button onPress={generateWallet} title="Import Your Wallet"/>
+				<Button onPress={generateWallet} title="Create New Account" />
+
+				<Button onPress={generateWallet} title="Import an Account" />
 			</View>
 		);
 	} else {
@@ -49,6 +51,7 @@ export default function App() {
 					<Text style={styles.text}>Address: </Text>
 					{wallet.address}
 				</Text>
+				
 				<Text>
 					<Text style={styles.text}>Private Key: </Text>
 					{wallet.privateKey}
