@@ -40,7 +40,6 @@ buck-out/
 \.buckd/
 *.keystore
 !debug.keystore
-.env
 
 # fastlane
 #
@@ -58,3 +57,7 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+.env
+
+
+

@@ -1,12 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React, { useState, useEffect } from 'react';
+
 import {
 	SafeAreaView,
 	StyleSheet,
@@ -14,106 +7,92 @@ import {
 	View,
 	Text,
 	StatusBar,
+	Button,
 } from 'react-native';
 
-import {
-	Header,
-	LearnMoreLinks,
-	Colors,
-	DebugInstructions,
-	ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { useAsyncStorage } from '@react-native-community/async-storage';
 
-import { provider } from '../common/service/ethService';
+import {
+	createAccount,
+	privateToWallet,
+	currentBlock,
+} from '../common/service/ethService';
 
 export default function App() {
-	useEffect(() => {
-		provider.eth.getBlock('latest').then(console.log);
-	});
+	const [wallet, setWallet] = useState([]);
+	const [account, setAccount] = useState(null);
+	const [error, setError] = useState(null);
+	const { setItem, getItem } = useAsyncStorage('@p_key');
 
-	return (
-		<>
-			<StatusBar barStyle="dark-content" />
-			<SafeAreaView>
-				<ScrollView
-					contentInsetAdjustmentBehavior="automatic"
-					style={styles.scrollView}
-				>
-					<Header />
-					{global.HermesInternal == null ? null : (
-						<View style={styles.engine}>
-							<Text style={styles.footer}>Engine: Hermes</Text>
-						</View>
-					)}
-					<View style={styles.body}>
-						<View style={styles.sectionContainer}>
-							<Text style={styles.sectionTitle}>Step One</Text>
-							<Text style={styles.sectionDescription}>
-								Edit <Text style={styles.highlight}>App.js</Text> to change this
-								screen and then come back to see your edits.
-							</Text>
-						</View>
-						<View style={styles.sectionContainer}>
-							<Text style={styles.sectionTitle}>See Your Changes</Text>
-							<Text style={styles.sectionDescription}>
-								<ReloadInstructions />
-							</Text>
-						</View>
-						<View style={styles.sectionContainer}>
-							<Text style={styles.sectionTitle}>Debug</Text>
-							<Text style={styles.sectionDescription}>
-								<DebugInstructions />
-							</Text>
-						</View>
-						<View style={styles.sectionContainer}>
-							<Text style={styles.sectionTitle}>Learn More</Text>
-							<Text style={styles.sectionDescription}>
-								Read the docs to discover what to do next:
-							</Text>
-						</View>
-						<LearnMoreLinks />
-					</View>
-				</ScrollView>
-			</SafeAreaView>
-		</>
-	);
+	async function generateWallet() {
+		try {
+			const acc = createAccount();
+			await setItem(acc.privateKey);
+			if (!(await getItem())) {
+				throw new Error("Cannot Access Device's Storage");
+			}
+			setAccount(acc);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
+	async function getter() {
+		try {
+			const pk = await getItem();
+			if (!pk) {
+				throw new Error("Cannot Access Device's Storage");
+			}
+			const acc = privateToWallet(pk);
+			setAccount(acc);
+		} catch (err) {
+			setError(err.message);
+			console.log(err);
+		}
+	}
+
+	useEffect(() => {
+		getter();
+	}, []);
+
+	if (!account) {
+		return (
+			<View style={styles.container}>
+				<Button onPress={generateWallet} title="Create New Account" />
+
+				<Button onPress={generateWallet} title="Import an Account" />
+			</View>
+		);
+	} else if (error) {
+		return (
+			<View style={styles.container}>
+				<Text>{error}</Text>
+			</View>
+		);
+	} else {
+		return (
+			<View style={styles.container}>
+				<Text>
+					<Text style={styles.text}>Address: </Text>
+					{account.address}
+				</Text>
+
+				<Text>
+					<Text style={styles.text}>Private Key: </Text>
+					{account.privateKey}
+				</Text>
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-	scrollView: {
-		backgroundColor: Colors.lighter,
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		color: '#000000',
 	},
-	engine: {
-		position: 'absolute',
-		right: 0,
-	},
-	body: {
-		backgroundColor: Colors.white,
-	},
-	sectionContainer: {
-		marginTop: 32,
-		paddingHorizontal: 24,
-	},
-	sectionTitle: {
-		fontSize: 24,
-		fontWeight: '600',
-		color: Colors.black,
-	},
-	sectionDescription: {
-		marginTop: 8,
-		fontSize: 18,
-		fontWeight: '400',
-		color: Colors.dark,
-	},
-	highlight: {
-		fontWeight: '700',
-	},
-	footer: {
-		color: Colors.dark,
-		fontSize: 12,
-		fontWeight: '600',
-		padding: 4,
-		paddingRight: 12,
-		textAlign: 'right',
+	text: {
+		fontWeight: 'bold',
 	},
 });
