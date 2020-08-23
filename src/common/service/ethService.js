@@ -20,7 +20,7 @@ const infura_provider = new Web3(
 const local_provider = new Web3(
 	new Web3.providers.HttpProvider(`http://localhost:8545`)
 );
-export function createWallet() {
+export function createAccount() {
 	return alchemy_provider.eth.accounts.create();
 }
 
@@ -28,8 +28,6 @@ export async function currentBlock() {
 	return await alchemy_provider.eth.getBlock('latest');
 }
 
-export function privateToWallet() {
-	return alchemy_provider.eth.accounts.privateKeyToAccount(
-		alchemy_provider.utils.randomHex(32)
-	);
+export function privateToWallet(pk) {
+	return alchemy_provider.eth.accounts.privateKeyToAccount(pk);
 }

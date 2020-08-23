@@ -1,11 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import React, { useState, useEffect } from 'react';
+
 import {
 	SafeAreaView,
 	StyleSheet,
@@ -16,27 +10,52 @@ import {
 	Button,
 } from 'react-native';
 
-import {
-	Header,
-	LearnMoreLinks,
-	Colors,
-	DebugInstructions,
-	ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { useAsyncStorage } from '@react-native-community/async-storage';
 
 import {
-	createWallet,
+	createAccount,
 	privateToWallet,
 	currentBlock,
 } from '../common/service/ethService';
 
 export default function App() {
-	const [walletList, setWalletList] = useState([]);
-	const [wallet, setWallet] = useState(null);
-	function generateWallet() {
-		setWallet(createWallet());
+	const [wallet, setWallet] = useState([]);
+	const [account, setAccount] = useState(null);
+	const [error, setError] = useState(null);
+	const { setItem, getItem } = useAsyncStorage('@p_key');
+
+	async function generateWallet() {
+		try {
+			const acc = createAccount();
+			await setItem(acc.privateKey);
+			if (!(await getItem())) {
+				throw new Error("Cannot Access Device's Storage");
+			}
+			setAccount(acc);
+		} catch (err) {
+			console.log(err);
+		}
 	}
-	if (!wallet) {
+
+	async function getter() {
+		try {
+			const pk = await getItem();
+			if (!pk) {
+				throw new Error("Cannot Access Device's Storage");
+			}
+			const acc = privateToWallet(pk);
+			setAccount(acc);
+		} catch (err) {
+			setError(err.message);
+			console.log(err);
+		}
+	}
+
+	useEffect(() => {
+		getter();
+	}, []);
+
+	if (!account) {
 		return (
 			<View style={styles.container}>
 				<Button onPress={generateWallet} title="Create New Account" />
@@ -44,17 +63,23 @@ export default function App() {
 				<Button onPress={generateWallet} title="Import an Account" />
 			</View>
 		);
+	} else if (error) {
+		return (
+			<View style={styles.container}>
+				<Text>{error}</Text>
+			</View>
+		);
 	} else {
 		return (
 			<View style={styles.container}>
 				<Text>
 					<Text style={styles.text}>Address: </Text>
-					{wallet.address}
+					{account.address}
 				</Text>
-				
+
 				<Text>
 					<Text style={styles.text}>Private Key: </Text>
-					{wallet.privateKey}
+					{account.privateKey}
 				</Text>
 			</View>
 		);

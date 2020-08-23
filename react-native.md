@@ -69,4 +69,4 @@ require('crypto');
 import './shim'; //in the first line of App.js or index.js
 ```
 
-`npm i --save web3`
+`npm i -d web3`
