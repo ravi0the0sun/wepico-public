@@ -10,7 +10,9 @@ import {
 	Button,
 } from 'react-native';
 
-import { useAsyncStorage } from '@react-native-community/async-storage';
+import AsyncStorage, {
+	useAsyncStorage,
+} from '@react-native-community/async-storage';
 
 import {
 	createAccount,
@@ -21,16 +23,12 @@ import {
 export default function App() {
 	const [wallet, setWallet] = useState([]);
 	const [account, setAccount] = useState(null);
-	const [error, setError] = useState(null);
 	const { setItem, getItem } = useAsyncStorage('@p_key');
 
 	async function generateWallet() {
 		try {
 			const acc = createAccount();
 			await setItem(acc.privateKey);
-			if (!(await getItem())) {
-				throw new Error("Cannot Access Device's Storage");
-			}
 			setAccount(acc);
 		} catch (err) {
 			console.log(err);
@@ -40,13 +38,21 @@ export default function App() {
 	async function getter() {
 		try {
 			const pk = await getItem();
-			if (!pk) {
-				throw new Error("Cannot Access Device's Storage");
+			if (pk) {
+				const acc = privateToWallet(pk);
+				setAccount(acc);
 			}
-			const acc = privateToWallet(pk);
-			setAccount(acc);
 		} catch (err) {
-			setError(err.message);
+			console.log(err);
+		}
+	}
+
+	async function removeData() {
+		setAccount(null);
+		try {
+			await AsyncStorage.removeItem('@p_key');
+			setAccount(null);
+		} catch (err) {
 			console.log(err);
 		}
 	}
@@ -63,12 +69,6 @@ export default function App() {
 				<Button onPress={generateWallet} title="Import an Account" />
 			</View>
 		);
-	} else if (error) {
-		return (
-			<View style={styles.container}>
-				<Text>{error}</Text>
-			</View>
-		);
 	} else {
 		return (
 			<View style={styles.container}>
@@ -81,6 +81,7 @@ export default function App() {
 					<Text style={styles.text}>Private Key: </Text>
 					{account.privateKey}
 				</Text>
+				<Button onPress={removeData} title="Delete Account" />
 			</View>
 		);
 	}
