@@ -16,57 +16,21 @@ import AsyncStorage, {
 
 import {
 	createAccount,
-	privateToWallet,
-	currentBlock,
+	privateToAccount,
+	encryptAccount,
+	decryptAccount,
 } from '../common/service/ethService';
 
+import { useAccount } from '../common/hooks/useAccount';
+
 export default function App() {
-	const [wallet, setWallet] = useState([]);
-	const [account, setAccount] = useState(null);
-	const { setItem, getItem } = useAsyncStorage('@p_key');
-
-	async function generateWallet() {
-		try {
-			const acc = createAccount();
-			await setItem(acc.privateKey);
-			setAccount(acc);
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
-	async function getter() {
-		try {
-			const pk = await getItem();
-			if (pk) {
-				const acc = privateToWallet(pk);
-				setAccount(acc);
-			}
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
-	async function removeData() {
-		setAccount(null);
-		try {
-			await AsyncStorage.removeItem('@p_key');
-			setAccount(null);
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
-	useEffect(() => {
-		getter();
-	}, []);
+	const [removeData, generateAccount, account] = useAccount(null);
 
 	if (!account) {
 		return (
 			<View style={styles.container}>
-				<Button onPress={generateWallet} title="Create New Account" />
-
-				<Button onPress={generateWallet} title="Import an Account" />
+				<Button onPress={generateAccount} title="Create New Account" />
+				<Button onPress={generateAccount} title="Import an Account" />
 			</View>
 		);
 	} else {
@@ -76,7 +40,6 @@ export default function App() {
 					<Text style={styles.text}>Address: </Text>
 					{account.address}
 				</Text>
-
 				<Text>
 					<Text style={styles.text}>Private Key: </Text>
 					{account.privateKey}
