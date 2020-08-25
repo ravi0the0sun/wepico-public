@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import {
 	SafeAreaView,
@@ -9,17 +9,6 @@ import {
 	StatusBar,
 	Button,
 } from 'react-native';
-
-import AsyncStorage, {
-	useAsyncStorage,
-} from '@react-native-community/async-storage';
-
-import {
-	createAccount,
-	privateToAccount,
-	encryptAccount,
-	decryptAccount,
-} from '../common/service/ethService';
 
 import { useAccount } from '../common/hooks/useAccount';
 
