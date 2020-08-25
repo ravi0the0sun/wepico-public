@@ -48,6 +48,16 @@ export function useAccount(privateKey) {
 		}
 	};
 
+	const importPrivate = async (privateKey) => {
+		try {
+			const acc = privateToAccount(privateKey);
+			await setItem(encryptAccount(acc.privateKey));
+			setAccount(acc);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	useEffect(() => {
 		accessingStore();
 	}, []);
