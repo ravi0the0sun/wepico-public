@@ -1,14 +1,6 @@
 import React from 'react';
-
-import {
-	SafeAreaView,
-	StyleSheet,
-	ScrollView,
-	View,
-	Text,
-	StatusBar,
-	Button,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Appbar } from 'react-native-paper';
 
 import { useAccount } from '../common/hooks/useAccount';
 
@@ -17,20 +9,21 @@ import Account from '../common/components/Account';
 
 export default function App() {
 	const [removeData, generateAccount, account] = useAccount(null);
-
-	if (!account) {
-		return (
-			<View style={styles.container}>
-				<Home generateAccount={generateAccount} />
-			</View>
-		);
-	} else {
-		return (
-			<View style={styles.container}>
-				<Account account={account} removeData={removeData} />
-			</View>
-		);
-	}
+	let title = !account ? 'Welcome' : 'Account';
+	let view = !account ? (
+		<Home generateAccount={generateAccount} />
+	) : (
+		<Account account={account} removeData={removeData} />
+	);
+	return (
+		<View style={styles.container}>
+			<Appbar.Header>
+				<Appbar.Action icon="menu" onPress={() => console.log('pressed')} />
+				<Appbar.Content title={title} />
+			</Appbar.Header>
+			<View style={styles.container}>{view}</View>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
