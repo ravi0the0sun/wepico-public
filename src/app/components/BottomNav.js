@@ -21,6 +21,22 @@ function SettingsScreen() {
 	);
 }
 
+function MessagesScreen() {
+	return (
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+			<Text>Messages!</Text>
+		</View>
+	);
+}
+
+function TransactionScreen() {
+	return (
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+			<Text>Transaction!</Text>
+		</View>
+	);
+}
+
 export default function BottomNav() {
 	return (
 		<Tab.Navigator
@@ -29,20 +45,24 @@ export default function BottomNav() {
 					let iconName;
 
 					if (route.name === 'Home') {
-						iconName = focused
-							? 'ios-information-circle'
-							: 'ios-information-circle-outline';
+						iconName = focused ? 'person' : 'person-outline';
+					} else if (route.name === 'Transaction') {
+						iconName = focused ? 'swap-vertical' : 'swap-vertical-outline';
+					} else if (route.name === 'Messages') {
+						iconName = focused ? 'at-circle' : 'at-circle-outline';
 					} else if (route.name === 'Settings') {
-						iconName = focused ? 'ios-list-box' : 'ios-list';
+						iconName = focused ? 'settings' : 'settings-outline';
 					}
 					return <Ionicons name={iconName} size={size} color={color} />;
 				},
 			})}
 			tabBarOptions={{
-				activeTintColor: 'tomato',
+				activeTintColor: 'black',
 				inactiveTintColor: 'gray',
 			}}>
 			<Tab.Screen name="Home" component={HomeScreen} />
+			<Tab.Screen name="Transaction" component={TransactionScreen} />
+			<Tab.Screen name="Messages" component={MessagesScreen} />
 			<Tab.Screen name="Settings" component={SettingsScreen} />
 		</Tab.Navigator>
 	);
