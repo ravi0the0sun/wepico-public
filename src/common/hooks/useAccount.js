@@ -14,6 +14,7 @@ export function useAccount(privateKey) {
 	const [account, setAccount] = useState(
 		!privateKey ? null : privateToAccount(privateKey)
 	);
+	const [noAccount, setNoAccount] = useState(false);
 	const { setItem, getItem } = useAsyncStorage('@p_key');
 
 	const generateAccount = async () => {
@@ -32,6 +33,8 @@ export function useAccount(privateKey) {
 			if (encryptString) {
 				const acc = decryptAccount(encryptString);
 				setAccount(acc);
+			} else {
+				setNoAccount(true);
 			}
 		} catch (err) {
 			console.log(err);
