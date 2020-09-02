@@ -18,11 +18,13 @@ export function useAccount(privateKey) {
 	const { setItem, getItem } = useAsyncStorage('@p_key');
 
 	const generateAccount = async () => {
+		setNoAccount(false);
 		try {
 			const acc = createAccount();
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
+			setNoAccount(true);
 			console.log(err);
 		}
 	};
@@ -37,6 +39,7 @@ export function useAccount(privateKey) {
 				setNoAccount(true);
 			}
 		} catch (err) {
+			setNoAccount(true);
 			console.log(err);
 		}
 	};
@@ -52,11 +55,13 @@ export function useAccount(privateKey) {
 	};
 
 	const importPrivate = async (privateKey) => {
+		setNoAccount(false);
 		try {
 			const acc = privateToAccount(privateKey);
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
+			setNoAccount(true);
 			console.log(err);
 		}
 	};
@@ -64,5 +69,5 @@ export function useAccount(privateKey) {
 	useEffect(() => {
 		accessingStore();
 	}, []);
-	return [removeData, generateAccount, account];
+	return [removeData, generateAccount, account, noAccount];
 }

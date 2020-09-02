@@ -40,6 +40,8 @@ function TransactionScreen() {
 export default function BottomNav() {
 	return (
 		<Tab.Navigator
+			initialRouteName="Home"
+			backBehavior="history"
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color, size }) => {
 					let iconName;
@@ -59,6 +61,7 @@ export default function BottomNav() {
 			tabBarOptions={{
 				activeTintColor: 'black',
 				inactiveTintColor: 'gray',
+				showLabel: false,
 			}}>
 			<Tab.Screen name="Home" component={HomeScreen} />
 			<Tab.Screen name="Transaction" component={TransactionScreen} />
