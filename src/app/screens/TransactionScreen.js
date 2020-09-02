@@ -3,12 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import NavBar from '../components/NavBar';
 
-export default function MessageScreen() {
+export default function TransactionScrren() {
 	return (
 		<View>
-			<NavBar title="messages" />
+			<NavBar title="transaction" />
 			<View style={style.container}>
-				<Text style={style.container}>Messages!</Text>
+				<Text style={style.container}>Transaction!</Text>
 			</View>
 		</View>
 	);

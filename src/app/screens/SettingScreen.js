@@ -3,12 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import NavBar from '../components/NavBar';
 
-export default function MessageScreen() {
+export default function SettingScreen() {
 	return (
 		<View>
-			<NavBar title="messages" />
+			<NavBar title="settings" />
 			<View style={style.container}>
-				<Text style={style.container}>Messages!</Text>
+				<Text style={style.container}>Settings!</Text>
 			</View>
 		</View>
 	);

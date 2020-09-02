@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import AsyncStorage, {
-	useAsyncStorage,
-} from '@react-native-community/async-storage';
+import { useAsyncStorage } from '@react-native-community/async-storage';
 
 import {
 	createAccount,
@@ -15,7 +13,7 @@ export function useAccount(privateKey) {
 		!privateKey ? null : privateToAccount(privateKey)
 	);
 	const [noAccount, setNoAccount] = useState(false);
-	const { setItem, getItem } = useAsyncStorage('@p_key');
+	const { setItem, getItem, removeItem } = useAsyncStorage('@p_key');
 
 	const generateAccount = async () => {
 		setNoAccount(false);
@@ -30,6 +28,7 @@ export function useAccount(privateKey) {
 	};
 
 	const accessingStore = async () => {
+		setNoAccount(false);
 		try {
 			const encryptString = await getItem();
 			if (encryptString) {
@@ -47,7 +46,7 @@ export function useAccount(privateKey) {
 	const removeData = async () => {
 		setAccount(null);
 		try {
-			await AsyncStorage.removeItem('@p_key');
+			await removeItem();
 			setAccount(null);
 		} catch (err) {
 			console.log(err);

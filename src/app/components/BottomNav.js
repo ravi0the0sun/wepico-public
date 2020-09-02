@@ -1,41 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import HomeScreen from '../screens/HomeScreen';
+import TransactionScreen from '../screens/TransactionScreen';
+import MessageScreen from '../screens/MessageScreen';
+import SettingScreen from '../screens/SettingScreen';
+
 const Tab = createBottomTabNavigator();
-
-function HomeScreen() {
-	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Home!</Text>
-		</View>
-	);
-}
-
-function SettingsScreen() {
-	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Settings!</Text>
-		</View>
-	);
-}
-
-function MessagesScreen() {
-	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Messages!</Text>
-		</View>
-	);
-}
-
-function TransactionScreen() {
-	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Transaction!</Text>
-		</View>
-	);
-}
 
 export default function BottomNav() {
 	return (
@@ -47,7 +19,7 @@ export default function BottomNav() {
 					let iconName;
 
 					if (route.name === 'Home') {
-						iconName = focused ? 'person' : 'person-outline';
+						iconName = focused ? 'wallet' : 'wallet-outline';
 					} else if (route.name === 'Transaction') {
 						iconName = focused ? 'swap-vertical' : 'swap-vertical-outline';
 					} else if (route.name === 'Messages') {
@@ -65,8 +37,8 @@ export default function BottomNav() {
 			}}>
 			<Tab.Screen name="Home" component={HomeScreen} />
 			<Tab.Screen name="Transaction" component={TransactionScreen} />
-			<Tab.Screen name="Messages" component={MessagesScreen} />
-			<Tab.Screen name="Settings" component={SettingsScreen} />
+			<Tab.Screen name="Messages" component={MessageScreen} />
+			<Tab.Screen name="Settings" component={SettingScreen} />
 		</Tab.Navigator>
 	);
 }
