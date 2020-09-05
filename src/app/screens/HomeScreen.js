@@ -8,16 +8,21 @@ import QRCodeScreen from './QRCodeScreen';
 
 const Stack = createStackNavigator();
 
-
-function WalletScreen({ address, navigation }) {
+function WalletScreen({ account, navigation }) {
+	const { address } = account;
 	const action = (
-		<Appbar.Action icon="qrcode" onPress={() => navigation.navigate('Recive')} />
+		<Appbar.Action
+			icon="qrcode"
+			onPress={() => navigation.navigate('Recive', { address: address })}
+		/>
 	);
 	return (
 		<View>
 			<NavBar title="wallet" sub={true} action={action} />
-			<View style={style.container}>
-				<Text style={style.container}>Wallet!</Text>
+			<View>
+				<Text>Wallet!</Text>
+				<Text>{account.address}</Text>
+				<Text>{account.privateKey}</Text>
 			</View>
 		</View>
 	);
@@ -25,17 +30,11 @@ function WalletScreen({ address, navigation }) {
 
 export default function HomeScreen({ account }) {
 	return (
-		<Stack.Navigator initialRouteName="Home">
-			<Stack.Screen name="Home" component={WalletScreen} />
+		<Stack.Navigator initialRouteName="Home" headerMode="none">
+			<Stack.Screen name="Home">
+				{(props) => <WalletScreen {...props} account={account} />}
+			</Stack.Screen>
 			<Stack.Screen name="Recive" component={QRCodeScreen} />
 		</Stack.Navigator>
 	);
 }
-
-const style = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		alignItems: 'center',
-	},
-});
