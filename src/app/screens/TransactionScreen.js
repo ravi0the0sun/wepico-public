@@ -7,17 +7,9 @@ export default function TransactionScrren() {
 	return (
 		<View>
 			<NavBar title="transaction" sub={true} />
-			<View style={style.container}>
-				<Text style={style.container}>Transaction!</Text>
+			<View>
+				<Text>Transaction!</Text>
 			</View>
 		</View>
 	);
 }
-
-const style = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		alignItems: 'center',
-	},
-});

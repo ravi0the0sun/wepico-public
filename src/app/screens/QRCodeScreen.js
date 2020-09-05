@@ -6,13 +6,15 @@ import NavBar from '../components/NavBar';
 import QrCode from '../components/QrCode';
 
 export default function QRCodeScreen({ route, navigation }) {
-	const address = route.params;
+	const { address } = route.params;
 	const back = (
 		<Appbar.BackAction onPress={() => navigation.navigate('Home')} />
 	);
 	return (
 		<View>
 			<NavBar title="Recive" backButton={back} />
+            <Text>{address}</Text>
+			<QrCode address={address} />
 		</View>
 	);
 }

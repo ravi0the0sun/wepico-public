@@ -1,23 +1,23 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 
-export default function SettingScreen() {
+export default function SettingScreen({ removeData }) {
 	return (
 		<View>
 			<NavBar title="settings" sub={false} />
-			<View style={style.container}>
-				<Text style={style.container}>Settings!</Text>
+			<View>
+				<Text>Settings!</Text>
+				<Button
+					color="#ffffff"
+					icon="delete"
+					onPress={removeData}
+					style={{ backgroundColor: '#000000' }}>
+					Delete Account
+				</Button>
 			</View>
 		</View>
 	);
 }
-
-const style = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		alignItems: 'center',
-	},
-});

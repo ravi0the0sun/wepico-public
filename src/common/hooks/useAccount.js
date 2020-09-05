@@ -44,6 +44,7 @@ export function useAccount(privateKey) {
 	};
 
 	const removeData = async () => {
+		setNoAccount(true);
 		setAccount(null);
 		try {
 			await removeItem();

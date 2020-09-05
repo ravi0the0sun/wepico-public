@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Appbar } from 'react-native-paper';
+import { Appbar, Avatar } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import NavBar from '../components/NavBar';
