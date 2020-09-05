@@ -9,7 +9,7 @@ import SettingScreen from '../screens/SettingScreen';
 
 const Tab = createBottomTabNavigator();
 
-export default function BottomNav() {
+export default function BottomNav({ removeData, account }) {
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"

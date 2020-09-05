@@ -13,5 +13,5 @@ export default function App() {
 			<LoadingScreen noAccount={noAccount} generateAccount={generateAccount} />
 		);
 	}
-	return <BottomNav />;
+	return <BottomNav removeData={removeData} account={account} />;
 }

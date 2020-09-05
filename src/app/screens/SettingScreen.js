@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 export default function SettingScreen() {
 	return (
 		<View>
-			<NavBar title="settings" />
+			<NavBar title="settings" sub={false} />
 			<View style={style.container}>
 				<Text style={style.container}>Settings!</Text>
 			</View>

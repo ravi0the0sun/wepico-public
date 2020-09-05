@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 export default function TransactionScrren() {
 	return (
 		<View>
-			<NavBar title="transaction" />
+			<NavBar title="transaction" sub={true} />
 			<View style={style.container}>
 				<Text style={style.container}>Transaction!</Text>
 			</View>

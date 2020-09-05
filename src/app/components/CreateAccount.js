@@ -8,10 +8,15 @@ export default function CreateAccount({ generateAccount }) {
 			<Button
 				icon="account-circle"
 				onPress={generateAccount}
-				style={style.button}>
+				style={style.button}
+				color="#ffffff">
 				Create New Account
 			</Button>
-			<Button icon="import" onPress={generateAccount} style={style.button}>
+			<Button
+				icon="import"
+				onPress={generateAccount}
+				style={style.button}
+				color="#ffffff">
 				Import an Account
 			</Button>
 		</View>
