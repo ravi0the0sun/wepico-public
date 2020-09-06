@@ -6,6 +6,7 @@ import {
 	encryptAccount,
 	decryptAccount,
 	privateToAccount,
+	getBalance,
 } from '../service/ethService';
 
 export function useAccount(privateKey) {
@@ -19,6 +20,7 @@ export function useAccount(privateKey) {
 		setNoAccount(false);
 		try {
 			const acc = createAccount();
+			acc.balance = await getBalance(acc.address);
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
@@ -33,6 +35,7 @@ export function useAccount(privateKey) {
 			const encryptString = await getItem();
 			if (encryptString) {
 				const acc = decryptAccount(encryptString);
+				acc.balance = await getBalance(acc.address);
 				setAccount(acc);
 			} else {
 				setNoAccount(true);
@@ -44,10 +47,10 @@ export function useAccount(privateKey) {
 	};
 
 	const removeData = async () => {
-		setNoAccount(true);
 		setAccount(null);
 		try {
 			await removeItem();
+			setNoAccount(true);
 			setAccount(null);
 		} catch (err) {
 			console.log(err);

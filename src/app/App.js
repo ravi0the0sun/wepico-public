@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAccount } from '../common/hooks/useAccount';
 
-import BottomNav from './components/BottomNav';
+import HomeScreenStack from './stack/HomeScreenStack';
 
 import LoadingScreen from './screens/LoadingScreen';
 
@@ -13,5 +13,5 @@ export default function App() {
 			<LoadingScreen noAccount={noAccount} generateAccount={generateAccount} />
 		);
 	}
-	return <BottomNav removeData={removeData} account={account} />;
+	return <HomeScreenStack removeData={removeData} account={account} />;
 }

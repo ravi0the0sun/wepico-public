@@ -9,7 +9,7 @@ import SettingScreen from '../screens/SettingScreen';
 
 const Tab = createBottomTabNavigator();
 
-export default function BottomNav({ removeData, account }) {
+export default function BottomNavTab({ removeData, account, navigation }) {
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"
@@ -36,7 +36,7 @@ export default function BottomNav({ removeData, account }) {
 				showLabel: false,
 			}}>
 			<Tab.Screen name="Home" >
-				{(props) => <HomeScreen {...props} account={account} />}
+				{(props) => <HomeScreen {...props} account={account} navigation={navigation} />}
 			</Tab.Screen>
 			<Tab.Screen name="Transaction" component={TransactionScreen} />
 			<Tab.Screen name="Messages" component={MessageScreen} />

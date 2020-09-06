@@ -1,14 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Appbar, Avatar } from 'react-native-paper';
-import { createStackNavigator } from '@react-navigation/stack';
+import {View, Text} from 'react-native';
+import {Appbar, Avatar} from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
-import QRCodeScreen from './QRCodeScreen';
 
-const Stack = createStackNavigator();
-
-function WalletScreen({ account, navigation }) {
+export default function HomeScreen({ account, navigation }) {
 	const { address } = account;
 	const action = (
 		<Appbar.Action
@@ -21,20 +17,10 @@ function WalletScreen({ account, navigation }) {
 			<NavBar title="wallet" sub={true} action={action} />
 			<View>
 				<Text>Wallet!</Text>
+				<Text>{account.balance} ETH</Text>
 				<Text>{account.address}</Text>
 				<Text>{account.privateKey}</Text>
 			</View>
 		</View>
-	);
-}
-
-export default function HomeScreen({ account }) {
-	return (
-		<Stack.Navigator initialRouteName="Home" headerMode="none">
-			<Stack.Screen name="Home">
-				{(props) => <WalletScreen {...props} account={account} />}
-			</Stack.Screen>
-			<Stack.Screen name="Recive" component={QRCodeScreen} />
-		</Stack.Navigator>
 	);
 }
