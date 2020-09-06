@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 export default function MessageScreen() {
 	return (
 		<View>
+
 			<NavBar title="messages" sub={true} />
 			<View>
 				<Text>Messages!</Text>
@@ -13,3 +14,4 @@ export default function MessageScreen() {
 		</View>
 	);
 }
+
