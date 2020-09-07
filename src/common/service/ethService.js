@@ -54,3 +54,9 @@ export function decryptWallet(keystoreString) {
 	const keystoreArray = JSON.parse(keystoreString);
 	return alchemy_provider.eth.accounts.wallet.decrypt(keystoreArray, password);
 }
+
+export async function getBalance(address) {
+	const wei = await alchemy_provider.eth.getBalance(address);
+	const ether = alchemy_provider.utils.fromWei(wei, 'ether');
+	return ether;
+}

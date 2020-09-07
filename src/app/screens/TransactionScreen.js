@@ -6,18 +6,10 @@ import NavBar from '../components/NavBar';
 export default function TransactionScrren() {
 	return (
 		<View>
-			<NavBar title="transaction" />
-			<View style={style.container}>
-				<Text style={style.container}>Transaction!</Text>
+			<NavBar title="transaction" sub={true} />
+			<View>
+				<Text>Transaction!</Text>
 			</View>
 		</View>
 	);
 }
-
-const style = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		alignItems: 'center',
-	},
-});

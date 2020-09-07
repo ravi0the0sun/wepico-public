@@ -1,23 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text} from 'react-native';
+import {Appbar, Avatar} from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 
-export default function HomeScreen() {
+export default function HomeScreen({ account, navigation }) {
+	const { address } = account;
+	const action = (
+		<Appbar.Action
+			icon="qrcode"
+			onPress={() => navigation.navigate('Recive', { address: address })}
+		/>
+	);
 	return (
 		<View>
-			<NavBar title="wallet" />
-			<View style={style.container}>
-				<Text style={style.container}>Wallet!</Text>
+			<NavBar title="wallet" sub={true} action={action} />
+			<View>
+				<Text>Wallet!</Text>
+				<Text>{account.balance} ETH</Text>
+				<Text>{account.address}</Text>
+				<Text>{account.privateKey}</Text>
 			</View>
 		</View>
 	);
 }
-
-const style = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		alignItems: 'center',
-	},
-});
