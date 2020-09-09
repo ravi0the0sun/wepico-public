@@ -13,7 +13,7 @@ export default function SettingScreen({ removeData }) {
 				<Text>Settings!</Text>
 				<Button
 					color="#ffffff"
-					icon="delete"
+					icon="trash"
 					onPress={removeData}
 					style={{ backgroundColor: '#000000' }}>
 					Delete Account

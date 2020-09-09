@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
-import CreateAccount from '../components/CreateAccount';
+import CreateAccountScreen from './CreateAccountScreen';
 
 export default function LoadingScreen({ noAccount, generateAccount }) {
 	if (!noAccount) {
@@ -12,5 +12,5 @@ export default function LoadingScreen({ noAccount, generateAccount }) {
 			/>
 		);
 	}
-	return <CreateAccount generateAccount={generateAccount} />;
+	return <CreateAccountScreen generateAccount={generateAccount} />;
 }

@@ -5,7 +5,7 @@ import { Appbar, Button } from 'react-native-paper';
 import NavBar from '../components/NavBar';
 
 export default function QRCodeScreen({ route, navigation }) {
-	const { account } = route.params;
+	const { privateKey } = route.params;
 	const back = (
 		<Appbar.BackAction onPress={() => navigation.navigate('Home')} />
 	);
@@ -13,7 +13,7 @@ export default function QRCodeScreen({ route, navigation }) {
 	return (
 		<View>
 			<NavBar title="Send" backButton={back} />
-			<Text>{account.address}</Text>
+			<Text>{privateKey}</Text>
 		</View>
 	);
 }

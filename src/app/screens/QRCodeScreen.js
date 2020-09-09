@@ -16,12 +16,6 @@ export default function QRCodeScreen({ route, navigation }) {
 	);
 	const copyToClipboard = () => {
 		Clipboard.setString(address);
-		buttonIcon = 'clipboard-check-outline';
-		buttonText = 'Copied PrivateKey';
-		setTimeout(() => {
-			buttonText = 'Copy PrivateKey';
-			buttonIcon = 'clipboard-outline';
-		}, 2000);
 	};
 	return (
 		<View>

@@ -2,18 +2,18 @@ import React from 'react';
 import { Button } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
 
-export default function CreateAccount({ generateAccount }) {
+export default function CreateAccountScreen({ generateAccount }) {
 	return (
 		<View style={style.container}>
 			<Button
-				icon="account-circle"
+				icon="key"
 				onPress={generateAccount}
 				style={style.button}
 				color="#ffffff">
 				Create New Account
 			</Button>
 			<Button
-				icon="import"
+				icon="log-in-outline"
 				onPress={generateAccount}
 				style={style.button}
 				color="#ffffff">

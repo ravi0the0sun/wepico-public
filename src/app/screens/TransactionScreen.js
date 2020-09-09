@@ -8,7 +8,7 @@ export default function TransactionScrren({ account, navigation }) {
 	const action = (
 		<Appbar.Action
 			icon="arrow-redo-circle-outline"
-			onPress={() => navigation.navigate('Send', { account: account })}
+			onPress={() => navigation.navigate('Send', { privateKey: account.privateKey })}
 		/>
 	);
 	return (
