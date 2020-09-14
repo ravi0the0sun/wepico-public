@@ -23,7 +23,7 @@ export default function SettingScreen({ removeData, privateKey }) {
 				</Button>
 				<Button
 					color="#ffffff"
-					icon="clipboard-outline"
+					icon="clipboard"
 					onPress={copyToClipboard}
 					style={{ backgroundColor: '#000000' }}>
 					Copy Private Key

@@ -4,11 +4,11 @@ import { Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 
-export default function TransactionScrren({ account, navigation }) {
+export default function TransactionScrren({ privateKey, navigation }) {
 	const action = (
 		<Appbar.Action
 			icon="arrow-redo-circle-outline"
-			onPress={() => navigation.navigate('Send', { privateKey: account.privateKey })}
+			onPress={() => navigation.navigate('Send', { privateKey: privateKey })}
 		/>
 	);
 	return (

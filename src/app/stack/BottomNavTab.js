@@ -41,7 +41,7 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 				)}
 			</Tab.Screen>
 			<Tab.Screen name="Transaction">
-				{(props) => <TransactionScreen {...props} account={account} />}
+				{(props) => <TransactionScreen {...props} privateKey={account.privateKey} />}
 			</Tab.Screen>
 			<Tab.Screen name="Messages" component={MessageScreen} />
 			<Tab.Screen name="Settings">

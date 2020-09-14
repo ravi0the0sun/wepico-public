@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 
 export default function ImportPrivate({ importPrivate }) {
-	const [value, onChangeText] = React.useState('');
+	const [value, onChangeText] = useState('');
 	return (
 		<View>
 			<Text>Import Account</Text>
@@ -15,7 +15,7 @@ export default function ImportPrivate({ importPrivate }) {
 			/>
 			<Button
 				disabled={!value}
-				icon="log-in-outline"
+				icon="log-in"
 				onPress={() => importPrivate(value)}
 				color="#ffffff"
 				style={{ backgroundColor: '#000000' }}>

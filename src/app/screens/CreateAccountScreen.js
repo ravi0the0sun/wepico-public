@@ -13,7 +13,7 @@ export default function CreateAccountScreen({ navigation, generateAccount }) {
 				Create New Account
 			</Button>
 			<Button
-				icon="log-in-outline"
+				icon="log-in"
 				onPress={() => navigation.navigate('Import')}
 				style={style.button}
 				color="#ffffff">
