@@ -1,20 +1,21 @@
 import React from 'react';
 import { Button } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
+import { Appbar } from 'react-native-paper';
 
-export default function CreateAccountScreen({ navigation, generateAccount }) {
+import NavBar from '../components/NavBar';
+
+export default function ImportPrivateScreen({ generateAccount, navigation }) {
+	const backButton = (
+		<Appbar.BackAction onPress={() => navigation.navigate('Welcome')} />
+	);
 	return (
-		<View style={style.container}>
+		<View>
+			<NavBar title="Import Account" backButton={backButton} />
 			<Button
-				icon="key"
-				onPress={generateAccount}
-				style={style.button}
-				color="#ffffff">
-				Create New Account
-			</Button>
-			<Button
+				style={style.container}
 				icon="log-in-outline"
-				onPress={() => navigation.navigate('Import')}
+				onPress={generateAccount}
 				style={style.button}
 				color="#ffffff">
 				Import an Account

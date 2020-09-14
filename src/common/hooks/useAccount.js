@@ -21,7 +21,6 @@ export function useAccount(privateKey) {
 		try {
 			const acc = createAccount();
 			acc.balance = await getBalance(acc.address);
-
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
