@@ -9,10 +9,8 @@ import {
 	getBalance,
 } from '../service/ethService';
 
-export function useAccount(privateKey) {
-	const [account, setAccount] = useState(
-		!privateKey ? null : privateToAccount(privateKey)
-	);
+export function useAccount(initialValue) {
+	const [account, setAccount] = useState(initialValue);
 	const [noAccount, setNoAccount] = useState(false);
 	const { setItem, getItem, removeItem } = useAsyncStorage('@p_key');
 
@@ -61,6 +59,7 @@ export function useAccount(privateKey) {
 		setNoAccount(false);
 		try {
 			const acc = privateToAccount(privateKey);
+			acc.balance = await getBalance(acc.address);
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
@@ -72,5 +71,5 @@ export function useAccount(privateKey) {
 	useEffect(() => {
 		accessingStore();
 	}, []);
-	return [removeData, generateAccount, account, noAccount];
+	return [removeData, generateAccount, importPrivate, account, noAccount];
 }

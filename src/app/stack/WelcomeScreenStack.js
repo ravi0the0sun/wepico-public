@@ -7,7 +7,7 @@ import ImportPrivateScreen from '../screens/ImportPrivateScreen';
 
 const Stack = createStackNavigator();
 
-export default function WelcomeScreenStack({ noAccount, generateAccount }) {
+export default function WelcomeScreenStack({ noAccount, generateAccount, importPrivate }) {
 	if (!noAccount) {
 		return (
 			<ActivityIndicator
@@ -26,7 +26,7 @@ export default function WelcomeScreenStack({ noAccount, generateAccount }) {
 			</Stack.Screen>
 			<Stack.Screen name="Import">
 				{(props) => (
-					<ImportPrivateScreen {...props} generateAccount={generateAccount} />
+					<ImportPrivateScreen {...props} importPrivate={importPrivate} />
 				)}
 			</Stack.Screen>
 		</Stack.Navigator>

@@ -21,6 +21,13 @@ const infura_provider = new Web3(
 const local_provider = new Web3(
 	new Web3.providers.HttpProvider(`http://localhost:8545`)
 );
+
+function validatePrivateKey(privateKey) {
+	if (!privateKey.match(/^0x[0-9A-fa-f]{64}$/)) {
+		throw new Error('Invalid privateKey');
+	}
+}
+
 export function createAccount() {
 	return alchemy_provider.eth.accounts.create();
 }
@@ -30,7 +37,9 @@ export async function currentBlock() {
 }
 
 export function privateToAccount(pk) {
-	return alchemy_provider.eth.accounts.privateKeyToAccount(pk);
+	const privateKey = pk.startsWith('0x') ? pk : '0x' + pk;
+	validatePrivateKey(privateKey);
+	return alchemy_provider.eth.accounts.privateKeyToAccount(privateKey);
 }
 
 export function encryptAccount(pk) {
