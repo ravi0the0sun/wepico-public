@@ -33,7 +33,6 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 			tabBarOptions={{
 				activeTintColor: 'black',
 				inactiveTintColor: 'gray',
-				showLabel: false,
 			}}>
 			<Tab.Screen name="Home">
 				{(props) => (
@@ -41,7 +40,7 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 				)}
 			</Tab.Screen>
 			<Tab.Screen name="Transaction">
-				{(props) => <TransactionScreen {...props} privateKey={account.privateKey} />}
+				{(props) => <TransactionScreen {...props} account={account} />}
 			</Tab.Screen>
 			<Tab.Screen name="Messages" component={MessageScreen} />
 			<Tab.Screen name="Settings">

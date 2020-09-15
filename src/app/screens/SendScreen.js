@@ -10,11 +10,21 @@ export default function SendScreen({ route, navigation }) {
 	const back = (
 		<Appbar.BackAction onPress={() => navigation.navigate('Home')} />
 	);
+	const action = (
+		<Appbar.Action
+			icon="close-circle-outline"
+			onPress={() => navigation.navigate('Home')}
+		/>
+	);
 
 	return (
 		<View>
-			<NavBar title="Send" sub={true} backButton={back} />
-			<Transaction privateKey={privateKey} navigation={navigation} route={route} />
+			<NavBar title="Send Eth" sub={true} backButton={back} action={action} />
+			<Transaction
+				privateKey={privateKey}
+				navigation={navigation}
+				route={route}
+			/>
 		</View>
 	);
 }

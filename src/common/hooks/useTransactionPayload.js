@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 
 import { sendTransaction, signTransaction } from '../service/ethService';
-import useTransactionReceipt from './useTransactionReceipt';
 
 export default function useTransactionPayload(route) {
 	const [address, setAddress] = useState('');
 	const [amount, setAmount] = useState('');
 	const [showBlock, setShowBlock] = useState(false);
-	const [blockInfo, setBlockInfo] = useTransactionReceipt(null);
+	const [blockInfo, setBlockInfo] = useState(null);
 
 	const transferTranasaction = async (privateKey) => {
 		try {

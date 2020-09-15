@@ -11,7 +11,7 @@ import {
 
 const GAS_LIMIT = 21000;
 
-const alchemy_provider = new Web3(
+const provider = new Web3(
 	new Web3.providers.HttpProvider(
 		`https://eth-${NETWORK}.alchemyapi.io/v2/${ALCHEMY_API_KEY}`
 	)
@@ -25,8 +25,6 @@ const local_provider = new Web3(
 	new Web3.providers.HttpProvider(`http://localhost:8545`)
 );
 
-const BN = alchemy_provider.utils.BN;
-
 function validatePrivateKey(privateKey) {
 	if (!privateKey.match(/^0x[0-9A-fa-f]{64}$/)) {
 		throw new Error('Invalid privateKey');
@@ -35,8 +33,8 @@ function validatePrivateKey(privateKey) {
 
 function validateAccount(address) {
 	try {
-		const checkSumAddress = alchemy_provider.utils.toChecksumAddress(address);
-		if (!alchemy_provider.utils.isAddress(checkSumAddress)) {
+		const checkSumAddress = provider.utils.toChecksumAddress(address);
+		if (!provider.utils.isAddress(checkSumAddress)) {
 			throw new Error();
 		}
 		return checkSumAddress;
@@ -47,61 +45,73 @@ function validateAccount(address) {
 
 function validateAmount(amount) {
 	try {
-		return alchemy_provider.utils.toWei(amount, 'ether');
+		return provider.utils.toWei(amount, 'ether');
 	} catch (err) {
 		throw new Error('Invalid amount');
 	}
 }
 
 function toEther(wei) {
-	return alchemy_provider.utils.fromWei(wei, 'ether');
+	return provider.utils.fromWei(wei, 'ether');
 }
 
 export function createAccount() {
-	return alchemy_provider.eth.accounts.create();
+	return provider.eth.accounts.create();
 }
 
-export async function currentBlock() {
-	return await alchemy_provider.eth.getBlock('latest');
+export async function currentBlockNumber() {
+	try {
+		return await provider.eth.getBlockNumber();
+	} catch (err) {
+		throw new Error(err.message);
+	}
 }
 
 export function privateToAccount(pk) {
 	const privateKey = pk.startsWith('0x') ? pk : '0x' + pk;
 	validatePrivateKey(privateKey);
-	return alchemy_provider.eth.accounts.privateKeyToAccount(privateKey);
+	return provider.eth.accounts.privateKeyToAccount(privateKey);
 }
 
 export function encryptAccount(pk) {
-	return JSON.stringify(alchemy_provider.eth.accounts.encrypt(pk, password));
+	return JSON.stringify(provider.eth.accounts.encrypt(pk, password));
 }
 
 export function decryptAccount(encryptString) {
 	const encryptObj = JSON.parse(encryptString);
-	return alchemy_provider.eth.accounts.decrypt(encryptObj, password);
+	return provider.eth.accounts.decrypt(encryptObj, password);
 }
 
-export function createWallet() {
-	return alchemy_provider.eth.accounts.wallet.create();
-}
+// export function createWallet() {
+// 	return provider.eth.accounts.wallet.create();
+// }
 
-export function encryptWallet(wallet) {
-	return JSON.stringify(wallet.encrypt(password));
-}
+// export function encryptWallet(wallet) {
+// 	return JSON.stringify(wallet.encrypt(password));
+// }
 
-export function decryptWallet(keystoreString) {
-	const keystoreArray = JSON.parse(keystoreString);
-	return alchemy_provider.eth.accounts.wallet.decrypt(keystoreArray, password);
-}
+// export function decryptWallet(keystoreString) {
+// 	const keystoreArray = JSON.parse(keystoreString);
+// 	return provider.eth.accounts.wallet.decrypt(keystoreArray, password);
+// }
 
 export async function getBalance(address) {
-	const wei = await alchemy_provider.eth.getBalance(address);
-	return toEther(wei);
+	try {
+		const wei = await provider.eth.getBalance(address);
+		return toEther(wei);
+	} catch (err) {
+		throw new Error('Error getting Balance');
+	}
 }
 
 export async function getGas() {
-	const gas = await alchemy_provider.eth.getGasPrice();
-	const gwei = alchemy_provider.utils.fromWei(gas, 'Gwei');
-	return gwei;
+	try {
+		const gas = await provider.eth.getGasPrice();
+		const gwei = provider.utils.fromWei(gas, 'Gwei');
+		return gwei;
+	} catch (err) {
+		throw new Error('Error getting the Gas Price');
+	}
 }
 
 export async function signTransaction(address, privateKey, amount) {
@@ -110,18 +120,30 @@ export async function signTransaction(address, privateKey, amount) {
 	);
 	const wei = validateAmount(amount);
 	validatePrivateKey(privateKey);
-	return await alchemy_provider.eth.accounts.signTransaction(
-		{
-			to: checkSumAddress,
-			value: wei,
-			gas: GAS_LIMIT,
-			chain: NETWORK,
-			hardfork: HARDFORK,
-		},
-		privateKey
-	);
+	try {
+		return await provider.eth.accounts.signTransaction(
+			{
+				to: checkSumAddress,
+				value: wei,
+				gas: GAS_LIMIT,
+				chain: NETWORK,
+				hardfork: HARDFORK,
+			},
+			privateKey
+		);
+	} catch (err) {
+		throw new Error('Error while signing the Transaction');
+	}
 }
 
 export async function sendTransaction(rawTransaction) {
-	return await alchemy_provider.eth.sendSignedTransaction(rawTransaction);
+	try {
+		return await provider.eth.sendSignedTransaction(rawTransaction);
+	} catch (err) {
+		throw new Error('Error sending the Transaction');
+	}
+}
+
+export function weiToEth(wei) {
+	return toEther(wei);
 }

@@ -8,7 +8,7 @@ export default function MessageScreen({ navigation }) {
 	const action = (
 		<Appbar.Action
 			icon="add-circle-outline"
-			onPress={() => console.log('pressed')}
+			onPress={() => navigation.navigate('Draft')}
 		/>
 	);
 	return (
