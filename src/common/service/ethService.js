@@ -34,11 +34,15 @@ function validatePrivateKey(privateKey) {
 }
 
 function validateAccount(address) {
-	const checkSumAddress = alchemy_provider.utils.toChecksumAddress(address);
-	if (!alchemy_provider.utils.isAddress(checkSumAddress)) {
+	try {
+		const checkSumAddress = alchemy_provider.utils.toChecksumAddress(address);
+		if (!alchemy_provider.utils.isAddress(checkSumAddress)) {
+			throw new Error();
+		}
+		return checkSumAddress;
+	} catch (err) {
 		throw new Error('Invalid Address');
 	}
-	return checkSumAddress;
 }
 
 function validateAmount(amount) {
@@ -118,6 +122,6 @@ export async function signTransaction(address, privateKey, amount) {
 	);
 }
 
-export async function sendTrasaction(rawTransaction) {
+export async function sendTransaction(rawTransaction) {
 	return await alchemy_provider.eth.sendSignedTransaction(rawTransaction);
 }

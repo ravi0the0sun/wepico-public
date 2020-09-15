@@ -2,58 +2,40 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Button, ActivityIndicator } from 'react-native-paper';
 import {
-	getGas,
-	sendTrasaction,
+	sendTransaction,
 	signTransaction,
 } from '../../common/service/ethService';
 
+import useGetGas from '../../common/hooks/useGetGas';
+import useTransactionPayload from '../../common/hooks/useTransactionPayload';
+
+import TransactionBlock from '../components/TransactionBlock';
+
 export default function Transaction({ privateKey, navigation, route }) {
-	const [gas, setGas] = useState('');
-	const [address, setAddress] = useState('');
-	const [amount, setAmount] = useState('');
-	const [blockInfo, setBlockInfo] = useState(null);
-	const [showBlock, setShowBlock] = useState(false);
+	const gas = useGetGas('');
+	const [
+		address,
+		setAddress,
+		amount,
+		setAmount,
+		transferTranasaction,
+		showBlock,
+		blockInfo,
+	] = useTransactionPayload(route);
 
-	const TransactionBlock = () => {
-		if (!showBlock) {
-			return <></>;
+	async function sendEventButton() {
+		try {
+			const signedTransaction = await transferTranasaction(privateKey);
+			navigation.navigate('Confirm', {
+				address,
+				gas,
+				amount,
+				signedTransaction,
+			});
+		} catch (err) {
+			throw new Error(err.message);
 		}
-		return (
-			<View>
-				{blockInfo ? (
-					<View>
-						<Text>BlockHash: {blockInfo.blockHash}</Text>
-						<Text>BlockNumber: {blockInfo.blockNumber}</Text>
-						<Text>TransactionHash: {blockInfo.transactionHash}</Text>
-						<Text>From: {blockInfo.from}</Text>
-						<Text>To: {blockInfo.to}</Text>
-						<Text>Status: {JSON.stringify(blockInfo.status)}</Text>
-					</View>
-				) : (
-					<ActivityIndicator animating={true} color={'#000000'} />
-				)}
-			</View>
-		);
-	};
-
-	async function checkGas() {
-		setGas(await getGas());
 	}
-
-	async function passingTransaction(rawTransaction) {
-		const blockRecipt = await sendTrasaction(rawTransaction);
-		setBlockInfo(blockRecipt);
-	}
-
-	useEffect(() => {
-		checkGas();
-		if (route.params?.rawTransaction) {
-			setAddress('');
-			setAmount('');
-			setShowBlock(true);
-			passingTransaction(route.params.rawTransaction);
-		}
-	}, [route.params?.rawTransaction]);
 
 	return (
 		<View>
@@ -83,21 +65,11 @@ export default function Transaction({ privateKey, navigation, route }) {
 			<Button
 				color={'#ffffff'}
 				icon="paper-plane"
-				onPress={() =>
-					signTransaction(address, privateKey, amount).then(
-						(signedTransaction) =>
-							navigation.navigate('Confirm', {
-								address,
-								gas,
-								amount,
-								signedTransaction,
-							})
-					)
-				}
+				onPress={() => sendEventButton()}
 				style={{ backgroundColor: '#000000' }}>
 				Send
 			</Button>
-			<TransactionBlock />
+			<TransactionBlock showBlock={showBlock} blockInfo={blockInfo} />
 		</View>
 	);
 }

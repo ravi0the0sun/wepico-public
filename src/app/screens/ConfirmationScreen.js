@@ -9,9 +9,15 @@ export default function ConfirmationScreen({ route, navigation }) {
 	const back = (
 		<Appbar.BackAction onPress={() => navigation.navigate('Send')} />
 	);
+	const action = (
+		<Appbar.Action
+			icon="close-circle-outline"
+			onPress={() => navigation.navigate('Send')}
+		/>
+	);
 	return (
 		<View>
-			<NavBar title="Confirm" sub={true} backButton={back} />
+			<NavBar title="Confirm" sub={true} backButton={back} action={action} />
 			<Text>TO: {address}</Text>
 			<Text>AMOUNT: {amount} ETH</Text>
 			<Text>GAS: {gas} Gwei</Text>
