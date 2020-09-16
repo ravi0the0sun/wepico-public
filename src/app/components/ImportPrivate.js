@@ -1,20 +1,26 @@
-import React from 'react';
-import { View, Button, TextInput } from 'react-native';
-
-import usePrivateKey from '../hooks/usePrivateKey';
+import React, { useState } from 'react';
+import { View, Text, TextInput } from 'react-native';
+import { Button } from 'react-native-paper';
 
 export default function ImportPrivate({ importPrivate }) {
-	const [privateKey, validatePrivateKey, error] = usePrivateKey();
+	const [value, onChangeText] = useState('');
 	return (
 		<View>
+			<Text>Import Account</Text>
 			<TextInput
 				placeholder="Import you account using PrivateKey"
-				onChangeText={(text) => validatePrivateKey(text)}
+				style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+				onChangeText={(text) => onChangeText(text)}
+				value={value}
 			/>
 			<Button
-				onPress={() => importPrivate(privateKey)}
-				title="Import You Account"
-			/>
+				disabled={!value}
+				icon="log-in"
+				onPress={() => importPrivate(value)}
+				color="#ffffff"
+				style={{ backgroundColor: '#000000' }}>
+				Import Your Account
+			</Button>
 		</View>
 	);
 }

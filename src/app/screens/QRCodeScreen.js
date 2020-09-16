@@ -6,9 +6,6 @@ import Clipboard from '@react-native-community/clipboard';
 import NavBar from '../components/NavBar';
 import QrCode from '../components/QrCode';
 
-let buttonText = 'Copy PrivateKey';
-let buttonIcon = 'clipboard-outline';
-
 export default function QRCodeScreen({ route, navigation }) {
 	const { address } = route.params;
 	const back = (
@@ -16,12 +13,6 @@ export default function QRCodeScreen({ route, navigation }) {
 	);
 	const copyToClipboard = () => {
 		Clipboard.setString(address);
-		buttonIcon = 'clipboard-check-outline';
-		buttonText = 'Copied PrivateKey';
-		setTimeout(() => {
-			buttonText = 'Copy PrivateKey';
-			buttonIcon = 'clipboard-outline';
-		}, 2000);
 	};
 	return (
 		<View>
@@ -30,10 +21,10 @@ export default function QRCodeScreen({ route, navigation }) {
 			<QrCode address={address} />
 			<Button
 				color="#ffffff"
-				icon={buttonIcon}
+				icon="clipboard"
 				style={{ backgroundColor: '#000000' }}
 				onPress={copyToClipboard}>
-				{buttonText}
+				Copy To Clipboard
 			</Button>
 		</View>
 	);
