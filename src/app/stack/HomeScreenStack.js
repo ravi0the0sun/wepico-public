@@ -15,7 +15,8 @@ export default function HomeScreenStack({ removeData, account }) {
 		<Stack.Navigator initialRouteName="Home" headerMode="none">
 			<Stack.Screen name="Home">
 				{(props) => (
-					<BottomNavTab {...props} removeData={removeData} account={account} />
+					<BottomNavTab {...props}
+					 removeData={removeData} account={account} />
 				)}
 			</Stack.Screen>
 			<Stack.Screen name="Recive" component={QRCodeScreen} />
