@@ -21,19 +21,19 @@ export default function TransactionList({
 		const icon = `${
 			title === 'Send' ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'
 		}`;
+
 		return (
 			<View>
 				<SafeAreaView>
 					<List.Item
 						title={`${title} ${eth}ETH`}
-						description={`${time}`}
+						description={`${time.toLocaleTimeString()} ${time.toLocaleDateString()}`}
 						left={(prop) => <List.Icon {...prop} icon={icon} />}
 					/>
 				</SafeAreaView>
 			</View>
 		);
 	};
-
 	function mapping(data, key) {
 		return [...new Map(data.map((x) => [key(x), x])).values()];
 	}
@@ -42,9 +42,9 @@ export default function TransactionList({
 		<View>
 			<SafeAreaView>
 				<FlatList
-					data={mappedList}
+					data={transactionList}
 					renderItem={renderItem}
-					keyExtractor={(item) => item.hash}
+					keyExtractor={(item) => item.timeStamp}
 					refreshing={refreshing}
 					onRefresh={() => pullToRefresh()}
 				/>
