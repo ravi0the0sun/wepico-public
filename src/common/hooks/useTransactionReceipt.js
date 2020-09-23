@@ -21,7 +21,6 @@ export default function useTransactionReceipt(address) {
 			const data = await accountTransaction(address, blockNumber);
 			const { status, message, result } = data;
 			if (status === '1') {
-				console.log(result);
 				setTransactionList([result]);
 			} else if (status === '0' && message === 'No transactions found') {
 				setTransactionList(message);

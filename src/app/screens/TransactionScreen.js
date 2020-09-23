@@ -22,12 +22,12 @@ export default function TransactionScrren({ account, navigation }) {
 		<View>
 			<NavBar title="transaction" sub={true} action={action} />
 			<View>
-				<Text>Transaction!</Text>
 				{transactionList ? (
 					<TransactionList
 						transactionList={transactionList}
 						pullToRefresh={pullToRefresh}
 						refreshing={refreshing}
+						address={account.address}
 					/>
 				) : (
 					<ActivityIndicator animating={true} color={'#000000'} />

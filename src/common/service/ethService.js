@@ -147,3 +147,7 @@ export async function sendTransaction(rawTransaction) {
 export function weiToEth(wei) {
 	return toEther(wei);
 }
+
+export function toChecksumAddress(address) {
+	return provider.utils.toChecksumAddress(address);
+}
