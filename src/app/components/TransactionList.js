@@ -23,11 +23,13 @@ export default function TransactionList({
 		}`;
 		return (
 			<View>
-				<List.Item
-					title={`${title} ${eth}ETH`}
-					description={`${time}`}
-					left={(prop) => <List.Icon {...prop} icon={icon} />}
-				/>
+				<SafeAreaView>
+					<List.Item
+						title={`${title} ${eth}ETH`}
+						description={`${time}`}
+						left={(prop) => <List.Icon {...prop} icon={icon} />}
+					/>
+				</SafeAreaView>
 			</View>
 		);
 	};
