@@ -1,28 +1,22 @@
 import { useState, useEffect } from 'react';
-import { currentBlockNumber } from '../service/ethService';
 import { accountTransaction } from '../service/etherscanService';
+
+function mapping(data, key) {
+	return [...new Map(data.map((x) => [key(x), x])).values()];
+}
 
 export default function useTransactionReceipt(address) {
 	const [transactionList, setTransactionList] = useState([]);
-	const [blockNumber, setBlockNumber] = useState();
 	const [refreshing, setRefreshing] = useState(false);
 
-	async function getCurrentBlock() {
+	async function transactionFetch() {
 		setRefreshing(true);
 		try {
-			setBlockNumber(await currentBlockNumber());
-		} catch (err) {
-			throw new Error(err.message);
-		}
-	}
-
-	async function transactionFetch() {
-		try {
-			const data = await accountTransaction(address, blockNumber);
+			const data = await accountTransaction(address);
 			const { status, message, result } = data;
 			if (status === '1') {
-				console.log(result);
-				setTransactionList([result]);
+				const mappedList = mapping(result, (it) => it.hash);
+				setTransactionList([mappedList]);
 			} else if (status === '0' && message === 'No transactions found') {
 				setTransactionList(message);
 			} else {
@@ -35,7 +29,6 @@ export default function useTransactionReceipt(address) {
 	}
 
 	const pullToRefresh = () => {
-		getCurrentBlock();
 		transactionFetch();
 	};
 

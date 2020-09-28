@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { ActivityIndicator, Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
@@ -22,16 +22,18 @@ export default function TransactionScrren({ account, navigation }) {
 		<View>
 			<NavBar title="transaction" sub={true} action={action} />
 			<View>
-				<Text>Transaction!</Text>
-				{transactionList ? (
-					<TransactionList
-						transactionList={transactionList}
-						pullToRefresh={pullToRefresh}
-						refreshing={refreshing}
-					/>
-				) : (
-					<ActivityIndicator animating={true} color={'#000000'} />
-				)}
+				<SafeAreaView>
+					{transactionList ? (
+						<TransactionList
+							transactionList={transactionList}
+							pullToRefresh={pullToRefresh}
+							refreshing={refreshing}
+							address={account.address}
+						/>
+					) : (
+						<ActivityIndicator animating={true} color={'#000000'} />
+					)}
+				</SafeAreaView>
 			</View>
 		</View>
 	);
