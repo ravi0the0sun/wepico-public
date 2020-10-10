@@ -48,6 +48,8 @@
     "react-native-tcp": "^3.3.2",
     "react-native-udp": "^2.7.0",
     "react-native-vector-icons": "^7.0.0",
+    "react-native-walletconnect": "0.0.1-alpha.0",
+    "react-native-webview": "^10.9.2",
     "readable-stream": "^1.0.33",
     "stream-browserify": "^1.0.0",
     "string_decoder": "^0.10.31",

@@ -4,16 +4,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import CreateAccountScreen from '../screens/CreateAccountScreen';
 import ImportPrivateScreen from '../screens/ImportPrivateScreen';
+import ConnectScreen from '../screens/ConnectScreen';
 
 const Stack = createStackNavigator();
 
-export default function WelcomeScreenStack({ noAccount, generateAccount, importPrivate }) {
+export default function WelcomeScreenStack({
+	noAccount,
+	generateAccount,
+	importPrivate,
+}) {
 	if (!noAccount) {
 		return (
 			<ActivityIndicator
 				style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 				animating={true}
-				color={Colors.black}
 			/>
 		);
 	}
@@ -29,6 +33,7 @@ export default function WelcomeScreenStack({ noAccount, generateAccount, importP
 					<ImportPrivateScreen {...props} importPrivate={importPrivate} />
 				)}
 			</Stack.Screen>
+			<Stack.Screen name="Connect" component={ConnectScreen} />
 		</Stack.Navigator>
 	);
 }
