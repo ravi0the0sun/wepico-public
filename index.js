@@ -1,4 +1,5 @@
 import './shim';
+import 'react-native-gesture-handler';
 
 import * as React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
