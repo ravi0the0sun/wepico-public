@@ -16,9 +16,7 @@ export default function ImportPrivate({ importPrivate }) {
 			<Button
 				disabled={!value}
 				icon="log-in"
-				onPress={() => importPrivate(value)}
-				color="#ffffff"
-				style={{ backgroundColor: '#000000' }}>
+				onPress={() => importPrivate(value)}>
 				Import Your Account
 			</Button>
 		</View>

@@ -31,7 +31,7 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 				},
 			})}
 			tabBarOptions={{
-				activeTintColor: 'black',
+				activeTintColor: '#6200ee',
 				inactiveTintColor: 'gray',
 			}}>
 			<Tab.Screen name="Home">

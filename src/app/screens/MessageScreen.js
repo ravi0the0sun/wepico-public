@@ -9,6 +9,7 @@ export default function MessageScreen({ navigation }) {
 		<Appbar.Action
 			icon="add-circle-outline"
 			onPress={() => navigation.navigate('Draft')}
+			color={'#6200ee'}
 		/>
 	);
 	return (

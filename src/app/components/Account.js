@@ -18,8 +18,6 @@ export default function Account({ account, navigation }) {
 				{account.privateKey}
 			</Text>
 			<Button
-				color="#ffffff"
-				style={{ backgroundColor: '#000000' }}
 				icon="paper-plane"
 				onPress={() =>
 					navigation.navigate('Send', { privateKey: account.privateKey })

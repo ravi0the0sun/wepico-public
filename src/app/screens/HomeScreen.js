@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {Appbar, Avatar} from 'react-native-paper';
+import { View, Text } from 'react-native';
+import { Appbar, Avatar } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import NavBar from '../components/NavBar';
@@ -12,6 +12,7 @@ export default function HomeScreen({ account, navigation }) {
 		<Appbar.Action
 			icon="qr-code-outline"
 			onPress={() => navigation.navigate('Recive', { address: address })}
+			color={'#6200ee'}
 		/>
 	);
 	return (

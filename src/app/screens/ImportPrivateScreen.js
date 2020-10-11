@@ -18,14 +18,3 @@ export default function ImportPrivateScreen({ importPrivate, navigation }) {
 	);
 }
 
-const style = StyleSheet.create({
-	button: {
-		backgroundColor: '#000000',
-		color: '#ffffff',
-	},
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-});

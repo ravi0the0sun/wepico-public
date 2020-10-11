@@ -63,10 +63,8 @@ export default function Transaction({ privateKey, navigation, route }) {
 				<Text>{gas} Gwei</Text>
 			)}
 			<Button
-				color={'#ffffff'}
 				icon="paper-plane"
-				onPress={() => sendEventButton()}
-				style={{ backgroundColor: '#000000' }}>
+				onPress={() => sendEventButton()}>
 				Send
 			</Button>
 			<TransactionBlock showBlock={showBlock} blockInfo={blockInfo} />
