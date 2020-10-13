@@ -1,5 +1,6 @@
 ```bash
 react-native init APPNAME
+cd APPNAME/
 npm i --save react-native-crypto
 npm i --save react-native-randombytes
 npm i --save-dev rn-nodeify@latest
