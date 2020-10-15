@@ -16,6 +16,7 @@ export default function TransactionScrren({ account, navigation }) {
 			onPress={() =>
 				navigation.navigate('Send', { privateKey: account.privateKey })
 			}
+			color={'#6200ee'}
 		/>
 	);
 	return (
@@ -31,7 +32,7 @@ export default function TransactionScrren({ account, navigation }) {
 							address={account.address}
 						/>
 					) : (
-						<ActivityIndicator animating={true} color={'#000000'} />
+						<ActivityIndicator animating={true} />
 					)}
 				</SafeAreaView>
 			</View>

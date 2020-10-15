@@ -19,6 +19,7 @@ export default function NavBar({ title, sub, action, backButton }) {
 				}
 				subtitleStyle={style.subtitle}
 				titleStyle={style.subtitle}
+				color={'#6200ee'}
 			/>
 			{action}
 		</Appbar.Header>
@@ -31,5 +32,9 @@ const style = StyleSheet.create({
 	},
 	appbar: {
 		backgroundColor: '#ffffff',
+		color: '#6200ee',
+	},
+	textColor: {
+		color: '#6200ee',
 	},
 });

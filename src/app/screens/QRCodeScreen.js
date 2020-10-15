@@ -9,7 +9,10 @@ import QrCode from '../components/QrCode';
 export default function QRCodeScreen({ route, navigation }) {
 	const { address } = route.params;
 	const back = (
-		<Appbar.BackAction onPress={() => navigation.navigate('Home')} />
+		<Appbar.BackAction
+			onPress={() => navigation.navigate('Home')}
+			color={'#6200ee'}
+		/>
 	);
 	const copyToClipboard = () => {
 		Clipboard.setString(address);
@@ -19,11 +22,7 @@ export default function QRCodeScreen({ route, navigation }) {
 			<NavBar title="Recive" backButton={back} />
 			<Text>{address}</Text>
 			<QrCode address={address} />
-			<Button
-				color="#ffffff"
-				icon="clipboard"
-				style={{ backgroundColor: '#000000' }}
-				onPress={copyToClipboard}>
+			<Button icon="clipboard" onPress={copyToClipboard}>
 				Copy To Clipboard
 			</Button>
 		</View>

@@ -14,18 +14,10 @@ export default function SettingScreen({ removeData, privateKey }) {
 			<NavBar title="settings" sub={false} />
 			<View>
 				<Text>Settings!</Text>
-				<Button
-					color="#ffffff"
-					icon="trash"
-					onPress={removeData}
-					style={{ backgroundColor: '#000000' }}>
+				<Button icon="trash" onPress={removeData}>
 					Delete Account
 				</Button>
-				<Button
-					color="#ffffff"
-					icon="clipboard"
-					onPress={copyToClipboard}
-					style={{ backgroundColor: '#000000' }}>
+				<Button icon="clipboard" onPress={copyToClipboard}>
 					Copy Private Key
 				</Button>
 			</View>

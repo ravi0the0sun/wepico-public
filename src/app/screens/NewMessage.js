@@ -6,7 +6,10 @@ import NavBar from '../components/NavBar';
 
 export default function NewMessage({ navigation }) {
 	const back = (
-		<Appbar.BackAction onPress={() => navigation.navigate('Home')} />
+		<Appbar.BackAction
+			onPress={() => navigation.navigate('Home')}
+			color={'#6200ee'}
+		/>
 	);
 	return (
 		<View>
