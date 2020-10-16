@@ -7,12 +7,16 @@ import NavBar from '../components/NavBar';
 export default function ConfirmationScreen({ route, navigation }) {
 	const { address, amount, gas, signedTransaction } = route.params;
 	const back = (
-		<Appbar.BackAction onPress={() => navigation.navigate('Send')} />
+		<Appbar.BackAction
+			onPress={() => navigation.navigate('Send')}
+			color={'#6200ee'}
+		/>
 	);
 	const action = (
 		<Appbar.Action
 			icon="close-circle-outline"
 			onPress={() => navigation.navigate('Send')}
+			color={'#6200ee'}
 		/>
 	);
 	return (

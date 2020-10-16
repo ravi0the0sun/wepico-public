@@ -8,7 +8,10 @@ import ImportPrivate from '../components/ImportPrivate';
 
 export default function ImportPrivateScreen({ importPrivate, navigation }) {
 	const backButton = (
-		<Appbar.BackAction onPress={() => navigation.navigate('Welcome')} />
+		<Appbar.BackAction
+			onPress={() => navigation.navigate('Welcome')}
+			color={'#6200ee'}
+		/>
 	);
 	return (
 		<View>
@@ -17,4 +20,3 @@ export default function ImportPrivateScreen({ importPrivate, navigation }) {
 		</View>
 	);
 }
-

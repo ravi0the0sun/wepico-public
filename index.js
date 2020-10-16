@@ -12,9 +12,11 @@ import WalletConnectProvider from 'react-native-walletconnect';
 
 const theme = {
 	...DefaultTheme,
-	roundness: 2,
+	dark: true,
+	roundness: 4,
 	colors: {
 		...DefaultTheme.colors,
+		accent: '#f1c40f',
 		background: '#ffffff',
 	},
 };
