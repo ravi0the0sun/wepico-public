@@ -14,6 +14,7 @@ export default function SendScreen({ route, navigation }) {
 		<Appbar.Action
 			icon="close-circle-outline"
 			onPress={() => navigation.navigate('Home')}
+			color={'#6200ee'}
 		/>
 	);
 
