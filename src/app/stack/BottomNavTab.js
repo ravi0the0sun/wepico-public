@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../tab/HomeTab';
@@ -7,15 +8,18 @@ import TransactionScreen from '../tab/TransactionTab';
 import MessageScreen from '../tab/MessageTab';
 import SettingScreen from '../tab/SettingTab';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function BottomNavTab({ removeData, account, navigation }) {
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"
 			backBehavior="history"
+			activeColor="#6200ee"
+			inactiveColor="#000000"
+			barStyle={{ backgroundColor: '#ffffff' }}
 			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused, color, size }) => {
+				tabBarIcon: ({ focused, color }) => {
 					let iconName;
 
 					if (route.name === 'Home') {
@@ -27,13 +31,9 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 					} else if (route.name === 'Settings') {
 						iconName = focused ? 'settings' : 'settings-outline';
 					}
-					return <Ionicons name={iconName} size={size} color={color} />;
+					return <Ionicons name={iconName} size={24} color={color} />;
 				},
-			})}
-			tabBarOptions={{
-				activeTintColor: '#6200ee',
-				inactiveTintColor: 'gray',
-			}}>
+			})}>
 			<Tab.Screen name="Home">
 				{(props) => (
 					<HomeScreen {...props} account={account} navigation={navigation} />
