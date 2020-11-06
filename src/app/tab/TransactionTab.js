@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 import TransactionList from '../components/TransactionList';
 import useTransactionReceipt from '../../common/hooks/useTransactionReceipt';
 
-export default function TransactionScrren({ account, navigation }) {
+export default function TransactionTab({ account, navigation }) {
 	const [[transactionList], refreshing, pullToRefresh] = useTransactionReceipt(
 		account.address
 	);

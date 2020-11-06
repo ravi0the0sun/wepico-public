@@ -5,7 +5,7 @@ import Clipboard from '@react-native-community/clipboard';
 
 import NavBar from '../components/NavBar';
 
-export default function SettingScreen({ removeData, privateKey }) {
+export default function SettingTab({ removeData, privateKey }) {
 	const copyToClipboard = () => {
 		Clipboard.setString(privateKey);
 	};

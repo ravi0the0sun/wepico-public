@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import NavBar from '../components/NavBar';
 import Account from '../components/Account';
 
-export default function HomeScreen({ account, navigation }) {
+export default function HomeTab({ account, navigation }) {
 	const { address } = account;
 	const action = (
 		<Appbar.Action

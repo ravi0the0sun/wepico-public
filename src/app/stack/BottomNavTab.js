@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import HomeScreen from '../tab/HomeTab';
-import TransactionScreen from '../tab/TransactionTab';
-import MessageScreen from '../tab/MessageTab';
-import SettingScreen from '../tab/SettingTab';
+import HomeTab from '../tab/HomeTab';
+import TransactionTab from '../tab/TransactionTab';
+import MarketTab from '../tab/MarketTab';
+import SettingTab from '../tab/SettingTab';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -26,8 +26,8 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 						iconName = focused ? 'wallet' : 'wallet-outline';
 					} else if (route.name === 'Transaction') {
 						iconName = focused ? 'swap-vertical' : 'swap-vertical-outline';
-					} else if (route.name === 'Messages') {
-						iconName = focused ? 'at-circle' : 'at-circle-outline';
+					} else if (route.name === 'Market') {
+						iconName = focused ? 'trending-up' : 'trending-up-outline';
 					} else if (route.name === 'Settings') {
 						iconName = focused ? 'settings' : 'settings-outline';
 					}
@@ -36,18 +36,18 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 			})}>
 			<Tab.Screen name="Home">
 				{(props) => (
-					<HomeScreen {...props} account={account} navigation={navigation} />
+					<HomeTab {...props} account={account} navigation={navigation} />
 				)}
 			</Tab.Screen>
 			<Tab.Screen name="Transaction">
-				{(props) => <TransactionScreen {...props} account={account} />}
+				{(props) => <TransactionTab {...props} account={account} />}
 			</Tab.Screen>
-			<Tab.Screen name="Messages">
-				{(props) => <MessageScreen {...props} account={account} />}
+			<Tab.Screen name="Market">
+				{(props) => <MarketTab {...props} account={account} />}
 			</Tab.Screen>
 			<Tab.Screen name="Settings">
 				{(props) => (
-					<SettingScreen
+					<SettingTab
 						{...props}
 						removeData={removeData}
 						privateKey={account.privateKey}

@@ -8,7 +8,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import App from './src/app/App';
 import { name as appName } from './app.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import WalletConnectProvider from 'react-native-walletconnect';
 
 const theme = {
 	...DefaultTheme,
@@ -23,17 +22,15 @@ const theme = {
 
 export default function Main() {
 	return (
-		<WalletConnectProvider>
-			<PaperProvider
-				theme={theme}
-				settings={{
-					icon: (props) => <Ionicons {...props} />,
-				}}>
-				<NavigationContainer>
-					<App />
-				</NavigationContainer>
-			</PaperProvider>
-		</WalletConnectProvider>
+		<PaperProvider
+			theme={theme}
+			settings={{
+				icon: (props) => <Ionicons {...props} />,
+			}}>
+			<NavigationContainer>
+				<App />
+			</NavigationContainer>
+		</PaperProvider>
 	);
 }
 
