@@ -242,8 +242,6 @@ PODS:
     - React
   - react-native-udp (2.7.0):
     - React
-  - react-native-webview (10.9.2):
-    - React-Core
   - React-RCTActionSheet (0.63.3):
     - React-Core/RCTActionSheetHeaders (= 0.63.3)
   - React-RCTAnimation (0.63.3):
@@ -366,7 +364,6 @@ DEPENDENCIES:
   - react-native-randombytes (from `../node_modules/react-native-randombytes`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-udp (from `../node_modules/react-native-udp`)
-  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -440,8 +437,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-udp:
     :path: "../node_modules/react-native-udp"
-  react-native-webview:
-    :path: "../node_modules/react-native-webview"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -513,7 +508,6 @@ SPEC CHECKSUMS:
   react-native-randombytes: 991545e6eaaf700b4ee384c291ef3d572e0b2ca8
   react-native-safe-area-context: fcece23844742b6f7f0627c3715b806a7deff946
   react-native-udp: ccbd878f0f3b968217fc7e3d5eb5839fcaab8b6c
-  react-native-webview: c51f73be304c61d359ec3e7c5e4e8f2c977fd360
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
   React-RCTAnimation: 1befece0b5183c22ae01b966f5583f42e69a83c2
   React-RCTBlob: 0b284339cbe4b15705a05e2313a51c6d8b51fa40
@@ -536,6 +530,6 @@ SPEC CHECKSUMS:
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: e93c47390d8853b1e9387b1829e109e5aecf23ea
+PODFILE CHECKSUM: 601c96f86a8ce2a719d5671d2cef38188ebf81db
 
 COCOAPODS: 1.10.0
