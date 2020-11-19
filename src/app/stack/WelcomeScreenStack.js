@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import CreateAccountScreen from '../screens/CreateAccountScreen';
 import ImportPrivateScreen from '../screens/ImportPrivateScreen';
-import ConnectScreen from '../screens/ConnectScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +32,6 @@ export default function WelcomeScreenStack({
 					<ImportPrivateScreen {...props} importPrivate={importPrivate} />
 				)}
 			</Stack.Screen>
-			<Stack.Screen name="Connect" component={ConnectScreen} />
 		</Stack.Navigator>
 	);
 }

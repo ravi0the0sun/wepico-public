@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, SafeAreaView } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, ScrollView } from 'react-native';
 import { List } from 'react-native-paper';
 import { weiToEth, toChecksumAddress } from '../../common/service/ethService';
 
@@ -40,15 +40,17 @@ export default function TransactionList({
 	const mappedList = mapping(transactionList, (it) => it.hash);
 	return (
 		<View>
-			<SafeAreaView>
-				<FlatList
-					data={transactionList}
-					renderItem={renderItem}
-					keyExtractor={(item) => item.timeStamp}
-					refreshing={refreshing}
-					onRefresh={() => pullToRefresh()}
-				/>
-			</SafeAreaView>
+			<ScrollView contentInsetAdjustmentBehavior="automatic">
+				<SafeAreaView>
+					<FlatList
+						data={transactionList}
+						renderItem={renderItem}
+						keyExtractor={(item) => item.timeStamp}
+						refreshing={refreshing}
+						onRefresh={() => pullToRefresh()}
+					/>
+				</SafeAreaView>
+			</ScrollView>
 		</View>
 	);
 }

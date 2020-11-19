@@ -26,8 +26,6 @@ export default function ConfirmationScreen({ route, navigation }) {
 			<Text>AMOUNT: {amount} ETH</Text>
 			<Text>GAS: {gas} Gwei</Text>
 			<Button
-				color={'#ffffff'}
-				style={{ backgroundColor: '#000000' }}
 				icon="checkmark-circle"
 				onPress={() =>
 					navigation.navigate('Send', {

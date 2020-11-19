@@ -8,30 +8,29 @@ import { NavigationContainer } from '@react-navigation/native';
 import App from './src/app/App';
 import { name as appName } from './app.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import WalletConnectProvider from 'react-native-walletconnect';
 
 const theme = {
 	...DefaultTheme,
-	roundness: 2,
+	dark: true,
+	roundness: 4,
 	colors: {
 		...DefaultTheme.colors,
+		accent: '#f1c40f',
 		background: '#ffffff',
 	},
 };
 
 export default function Main() {
 	return (
-		<WalletConnectProvider>
-			<PaperProvider
-				theme={theme}
-				settings={{
-					icon: (props) => <Ionicons {...props} />,
-				}}>
-				<NavigationContainer>
-					<App />
-				</NavigationContainer>
-			</PaperProvider>
-		</WalletConnectProvider>
+		<PaperProvider
+			theme={theme}
+			settings={{
+				icon: (props) => <Ionicons {...props} />,
+			}}>
+			<NavigationContainer>
+				<App />
+			</NavigationContainer>
+		</PaperProvider>
 	);
 }
 

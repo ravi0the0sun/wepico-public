@@ -58,7 +58,7 @@ export default function Transaction({ privateKey, navigation, route }) {
 			/>
 			<Text>Current Gas Price</Text>
 			{!gas ? (
-				<ActivityIndicator animating={true} color={'#000000'} />
+				<ActivityIndicator animating={true} />
 			) : (
 				<Text>{gas} Gwei</Text>
 			)}

@@ -20,7 +20,7 @@ export default function TransactionBlock({ showBlock, blockInfo }) {
 					<Text>Status: {JSON.stringify(blockInfo.status)}</Text>
 				</View>
 			) : (
-				<ActivityIndicator animating={true} color={'#000000'} />
+				<ActivityIndicator animating={true} />
 			)}
 		</View>
 	);

@@ -11,11 +11,6 @@ export default function CreateAccountScreen({ navigation, generateAccount }) {
 			<Button icon="log-in" onPress={() => navigation.navigate('Import')}>
 				Import an Account
 			</Button>
-			<Button
-				icon="add-circle-outline"
-				onPress={() => navigation.navigate('Connect')}>
-				Connect Wallet
-			</Button>
 		</View>
 	);
 }

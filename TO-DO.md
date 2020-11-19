@@ -16,6 +16,10 @@
 - ~Send transaaction including calculated fees~ 
 - ~Show gas prices~ 
 
+- add dark mode option in settings
+- add graphic vector art icons to make it pretty
+- create logo for all devices (easy using online tools)
+
 # API references 
 [Web3](https://web3js.readthedocs.io/en/v1.2.11/index.html)<br/>
 [React Navigation](https://reactnavigation.org/)<br/>
