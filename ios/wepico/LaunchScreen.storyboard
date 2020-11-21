@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -13,34 +13,22 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="shc-2L-uJV">
-                                <rect key="frame" x="111.66666666666669" y="232.66666666666663" width="191" height="202"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="svg-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rc0-nv-RW7">
+                                <rect key="frame" x="95" y="234" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="202" id="Bdk-cq-4Nc"/>
-                                    <constraint firstAttribute="width" constant="191" id="gGf-3X-2Qp"/>
+                                    <constraint firstAttribute="width" constant="200" id="0KV-Au-v9D"/>
+                                    <constraint firstAttribute="height" constant="200" id="PFv-1d-xxI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wepico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-KM-Nft">
-                                <rect key="frame" x="133" y="442" width="148" height="74"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="2Ae-Ih-jXQ"/>
-                                    <constraint firstAttribute="width" constant="148" id="EW3-vk-9am"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <color key="textColor" red="0.27005597949999999" green="0.91136628389999996" blue="0.58009558920000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.26693391799999999" green="0.27401614190000001" blue="0.30467763539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="shc-2L-uJV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-114.5" id="1Ql-ru-mrs"/>
-                            <constraint firstItem="qh1-KM-Nft" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8tX-uq-AET"/>
-                            <constraint firstItem="shc-2L-uJV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HKH-Ps-BHh"/>
-                            <constraint firstItem="qh1-KM-Nft" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="31" id="dX9-ky-4RN"/>
+                            <constraint firstItem="Rc0-nv-RW7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AI8-V5-kOU"/>
+                            <constraint firstItem="Rc0-nv-RW7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-88" id="EYl-Dz-8sC"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="395" height="418"/>
+        <image name="svg-icon" width="280" height="279.0692138671875"/>
     </resources>
 </document>
