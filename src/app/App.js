@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { useAccount } from '../common/hooks/useAccount';
 
@@ -14,14 +15,18 @@ export default function App() {
 		account,
 		noAccount,
 	] = useAccount(null);
-	if (!account) {
-		return (
-			<WelcomeScreenStack
-				noAccount={noAccount}
-				generateAccount={generateAccount}
-				importPrivate={importPrivate}
-			/>
-		);
-	}
-	return <HomeScreenStack removeData={removeData} account={account} />;
+
+	return (
+		<NavigationContainer>
+			{!account ? (
+				<WelcomeScreenStack
+					noAccount={noAccount}
+					generateAccount={generateAccount}
+					importPrivate={importPrivate}
+				/>
+			) : (
+				<HomeScreenStack removeData={removeData} account={account} />
+			)}
+		</NavigationContainer>
+	);
 }

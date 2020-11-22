@@ -4,7 +4,6 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { AppRegistry, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import App from './src/app/App';
 import { name as appName } from './app.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -25,11 +24,9 @@ export default function Main() {
 		<PaperProvider
 			theme={theme}
 			settings={{
-				icon: (props) => <Ionicons {...props} />,
+				icon: props => <Ionicons {...props} />,
 			}}>
-			<NavigationContainer>
-				<App />
-			</NavigationContainer>
+			<App />
 		</PaperProvider>
 	);
 }
