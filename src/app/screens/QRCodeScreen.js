@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Appbar, Button } from 'react-native-paper';
 import Clipboard from '@react-native-community/clipboard';
 
@@ -11,7 +11,7 @@ export default function QRCodeScreen({ route, navigation }) {
 	const back = (
 		<Appbar.BackAction
 			onPress={() => navigation.navigate('Home')}
-			color={'#6200ee'}
+			color={'#13d777'}
 		/>
 	);
 	const copyToClipboard = () => {
@@ -28,3 +28,9 @@ export default function QRCodeScreen({ route, navigation }) {
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	bgColor: {
+		backgroundColor: '#101116',
+	},
+});

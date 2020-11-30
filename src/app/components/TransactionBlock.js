@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 
 export default function TransactionBlock({ showBlock, blockInfo }) {
@@ -10,7 +10,7 @@ export default function TransactionBlock({ showBlock, blockInfo }) {
 	return (
 		<View>
 			{blockInfo ? (
-				<View>
+				<View style={styles.text}>
 					{console.log(blockInfo)}
 					<Text>BlockHash: {blockInfo.blockHash}</Text>
 					<Text>BlockNumber: {blockInfo.blockNumber}</Text>
@@ -25,3 +25,9 @@ export default function TransactionBlock({ showBlock, blockInfo }) {
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	text: {
+		color: '#ffffff',
+	},
+});

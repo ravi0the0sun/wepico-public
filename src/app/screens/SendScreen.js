@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
@@ -10,14 +10,14 @@ export default function SendScreen({ route, navigation }) {
 	const back = (
 		<Appbar.BackAction
 			onPress={() => navigation.navigate('Home')}
-			color={'#6200ee'}
+			color={'#13d777'}
 		/>
 	);
 	const action = (
 		<Appbar.Action
 			icon="close-circle-outline"
 			onPress={() => navigation.navigate('Home')}
-			color={'#6200ee'}
+			color={'#13d777'}
 		/>
 	);
 
@@ -32,3 +32,9 @@ export default function SendScreen({ route, navigation }) {
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	bgColor: {
+		backgroundColor: '#101116',
+	},
+});
