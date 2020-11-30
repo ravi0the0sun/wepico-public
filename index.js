@@ -14,8 +14,9 @@ const theme = {
 	roundness: 4,
 	colors: {
 		...DefaultTheme.colors,
-		accent: '#f1c40f',
-		background: '#ffffff',
+		primary: '#13d777',
+		accent: '#ffffff',
+		background: '#44464F',
 	},
 };
 

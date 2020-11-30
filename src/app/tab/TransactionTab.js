@@ -16,26 +16,27 @@ export default function TransactionTab({ account, navigation }) {
 			onPress={() =>
 				navigation.navigate('Send', { privateKey: account.privateKey })
 			}
-			color={'#6200ee'}
+			color={'#13d777'}
 		/>
 	);
 	return (
-		<View>
+		<>
 			<NavBar title="transaction" sub={true} action={action} />
 			<View>
-				<SafeAreaView>
-					{transactionList ? (
-						<TransactionList
-							transactionList={transactionList}
-							pullToRefresh={pullToRefresh}
-							refreshing={refreshing}
-							address={account.address}
-						/>
-					) : (
-						<ActivityIndicator animating={true} />
-					)}
-				</SafeAreaView>
+				{transactionList ? (
+					<TransactionList
+						transactionList={transactionList}
+						pullToRefresh={pullToRefresh}
+						refreshing={refreshing}
+						address={account.address}
+					/>
+				) : (
+					<ActivityIndicator
+						animating={true}
+						style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+					/>
+				)}
 			</View>
-		</View>
+		</>
 	);
 }

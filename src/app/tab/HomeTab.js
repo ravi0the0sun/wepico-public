@@ -12,7 +12,7 @@ export default function HomeTab({ account, navigation }) {
 		<Appbar.Action
 			icon="qr-code-outline"
 			onPress={() => navigation.navigate('Recive', { address: address })}
-			color={'#6200ee'}
+			color={'#13d777'}
 		/>
 	);
 	return (

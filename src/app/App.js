@@ -1,11 +1,19 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
 import { useAccount } from '../common/hooks/useAccount';
 
 import HomeScreenStack from './stack/HomeScreenStack';
 
 import WelcomeScreenStack from './stack/WelcomeScreenStack';
+
+const theme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		background: '#3c3f50',
+	},
+};
 
 export default function App() {
 	const [
@@ -17,7 +25,7 @@ export default function App() {
 	] = useAccount(null);
 
 	return (
-		<NavigationContainer>
+		<NavigationContainer theme={theme}>
 			{!account ? (
 				<WelcomeScreenStack
 					noAccount={noAccount}

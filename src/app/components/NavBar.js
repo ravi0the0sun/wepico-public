@@ -1,26 +1,32 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Text, StyleSheet, Platform } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import { NETWORK } from '../../common/config/config';
 
 export default function NavBar({ title, sub, action, backButton }) {
 	return (
-		<Appbar.Header style={style.appbar}>
+		<Appbar.Header style={style.appbar} color={'#13d777'}>
 			{backButton}
+			{!backButton && Platform.OS === 'android' && (
+				<Appbar.Action disable={true} />
+			)}
 			<Appbar.Content
-				title={title}
+				title={<Text style={style.title}>{title}</Text>}
 				subtitle={
-					sub
-						? NETWORK === 'mainnet'
-							? `Etherum Main Network`
-							: `${NETWORK} Test Network`
-						: ''
+					sub &&
+					(NETWORK === 'mainnet' ? (
+						<Text>Etherum Main Network</Text>
+					) : (
+						<Text>{NETWORK} Test Metwork</Text>
+					))
 				}
+				style={{ alignItems: 'center' }}
 				subtitleStyle={style.subtitle}
 				titleStyle={style.subtitle}
-				color={'#6200ee'}
+				color={'#13d777'}
 			/>
+			{!action && Platform.OS === 'android' && <Appbar.Action disable={true} />}
 			{action}
 		</Appbar.Header>
 	);
@@ -31,10 +37,12 @@ const style = StyleSheet.create({
 		textTransform: 'capitalize',
 	},
 	appbar: {
-		backgroundColor: '#ffffff',
-		color: '#6200ee',
+		backgroundColor: '#44464F',
 	},
 	textColor: {
-		color: '#6200ee',
+		color: '#13d777',
+	},
+	title: {
+		fontSize: 20,
 	},
 });

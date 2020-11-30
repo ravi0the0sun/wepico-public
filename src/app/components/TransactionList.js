@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, FlatList, SafeAreaView, ScrollView } from 'react-native';
+import {
+	View,
+	Text,
+	FlatList,
+	SafeAreaView,
+	ScrollView,
+	StyleSheet,
+} from 'react-native';
 import { List } from 'react-native-paper';
 import { weiToEth, toChecksumAddress } from '../../common/service/ethService';
 
@@ -26,18 +33,19 @@ export default function TransactionList({
 			<View>
 				<SafeAreaView>
 					<List.Item
+						style={styles.list}
 						title={`${title} ${eth}ETH`}
 						description={`${time.toLocaleTimeString()} ${time.toLocaleDateString()}`}
-						left={(prop) => <List.Icon {...prop} icon={icon} />}
+						left={prop => <List.Icon {...prop} icon={icon} />}
 					/>
 				</SafeAreaView>
 			</View>
 		);
 	};
 	function mapping(data, key) {
-		return [...new Map(data.map((x) => [key(x), x])).values()];
+		return [...new Map(data.map(x => [key(x), x])).values()];
 	}
-	const mappedList = mapping(transactionList, (it) => it.hash);
+	const mappedList = mapping(transactionList, it => it.hash);
 	return (
 		<View>
 			<ScrollView contentInsetAdjustmentBehavior="automatic">
@@ -45,7 +53,7 @@ export default function TransactionList({
 					<FlatList
 						data={transactionList}
 						renderItem={renderItem}
-						keyExtractor={(item) => item.timeStamp}
+						keyExtractor={item => item.timeStamp}
 						refreshing={refreshing}
 						onRefresh={() => pullToRefresh()}
 					/>
@@ -54,3 +62,9 @@ export default function TransactionList({
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	list: {
+		color: '#ffffff',
+	},
+});

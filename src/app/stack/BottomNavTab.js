@@ -15,9 +15,9 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 		<Tab.Navigator
 			initialRouteName="Home"
 			backBehavior="history"
-			activeColor="#6200ee"
-			inactiveColor="#000000"
-			barStyle={{ backgroundColor: '#ffffff' }}
+			activeColor="#13d777"
+			inactiveColor="#c9c9c9"
+			barStyle={{ backgroundColor: '#44464F' }}
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color }) => {
 					let iconName;
@@ -35,18 +35,18 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 				},
 			})}>
 			<Tab.Screen name="Home">
-				{(props) => (
+				{props => (
 					<HomeTab {...props} account={account} navigation={navigation} />
 				)}
 			</Tab.Screen>
 			<Tab.Screen name="Transaction">
-				{(props) => <TransactionTab {...props} account={account} />}
+				{props => <TransactionTab {...props} account={account} />}
 			</Tab.Screen>
 			<Tab.Screen name="Market">
-				{(props) => <MarketTab {...props} account={account} />}
+				{props => <MarketTab {...props} account={account} />}
 			</Tab.Screen>
 			<Tab.Screen name="Settings">
-				{(props) => (
+				{props => (
 					<SettingTab
 						{...props}
 						removeData={removeData}

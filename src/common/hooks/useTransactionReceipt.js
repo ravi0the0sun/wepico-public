@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { accountTransaction } from '../service/etherscanService';
 
 function mapping(data, key) {
-	return [...new Map(data.map((x) => [key(x), x])).values()];
+	return [...new Map(data.map(x => [key(x), x])).values()];
 }
 
 export default function useTransactionReceipt(address) {
@@ -15,7 +15,7 @@ export default function useTransactionReceipt(address) {
 			const data = await accountTransaction(address);
 			const { status, message, result } = data;
 			if (status === '1') {
-				const mappedList = mapping(result, (it) => it.hash);
+				const mappedList = mapping(result, it => it.hash);
 				setTransactionList([mappedList]);
 			} else if (status === '0' && message === 'No transactions found') {
 				setTransactionList(message);
