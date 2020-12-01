@@ -11,7 +11,7 @@ const theme = {
 	...DefaultTheme,
 	colors: {
 		...DefaultTheme.colors,
-		background: '#3c3f50',
+		background: '#44464F',
 	},
 };
 

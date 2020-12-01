@@ -2,7 +2,7 @@ import React from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import CreateAccountScreen from '../screens/CreateAccountScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 import ImportPrivateScreen from '../screens/ImportPrivateScreen';
 
 const Stack = createStackNavigator();
@@ -23,12 +23,12 @@ export default function WelcomeScreenStack({
 	return (
 		<Stack.Navigator initialRouteName="Welcome" headerMode="none">
 			<Stack.Screen name="Welcome">
-				{(props) => (
-					<CreateAccountScreen {...props} generateAccount={generateAccount} />
+				{props => (
+					<WelcomeScreen {...props} generateAccount={generateAccount} />
 				)}
 			</Stack.Screen>
 			<Stack.Screen name="Import">
-				{(props) => (
+				{props => (
 					<ImportPrivateScreen {...props} importPrivate={importPrivate} />
 				)}
 			</Stack.Screen>
