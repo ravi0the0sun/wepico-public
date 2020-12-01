@@ -27,7 +27,5 @@ export default function TransactionBlock({ showBlock, blockInfo }) {
 }
 
 const styles = StyleSheet.create({
-	text: {
-		color: '#ffffff',
-	},
+	text: {},
 });
