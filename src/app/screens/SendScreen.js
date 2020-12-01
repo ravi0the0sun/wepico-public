@@ -7,23 +7,16 @@ import Transaction from '../components/Transaction';
 
 export default function SendScreen({ route, navigation }) {
 	const { privateKey } = route.params;
-	const back = (
-		<Appbar.BackAction
-			onPress={() => navigation.navigate('Home')}
-			color={'#13d777'}
-		/>
-	);
-	const action = (
-		<Appbar.Action
-			icon="close-circle-outline"
-			onPress={() => navigation.navigate('Home')}
-			color={'#13d777'}
-		/>
-	);
 
 	return (
 		<View>
-			<NavBar title="Send Eth" sub={true} backButton={back} action={action} />
+			<NavBar
+				navigation={navigation}
+				title="Send Eth"
+				sub={true}
+				action={() => navigation.navigate('Home')}
+				icon={'close-circle-outline'}
+			/>
 			<Transaction
 				privateKey={privateKey}
 				navigation={navigation}

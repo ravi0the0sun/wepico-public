@@ -5,15 +5,9 @@ import { Appbar } from 'react-native-paper';
 import NavBar from '../components/NavBar';
 
 export default function NewMessage({ navigation }) {
-	const back = (
-		<Appbar.BackAction
-			onPress={() => navigation.navigate('Home')}
-			color={'#6200ee'}
-		/>
-	);
 	return (
 		<View>
-			<NavBar title="Send Message" sub={true} backButton={back} />
+			<NavBar title="Send Message" sub={true} navigation={navigation} />
 			<View>
 				<Text>Send New Messages!</Text>
 			</View>

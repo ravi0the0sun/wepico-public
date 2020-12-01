@@ -8,18 +8,13 @@ import QrCode from '../components/QrCode';
 
 export default function QRCodeScreen({ route, navigation }) {
 	const { address } = route.params;
-	const back = (
-		<Appbar.BackAction
-			onPress={() => navigation.navigate('Home')}
-			color={'#13d777'}
-		/>
-	);
+
 	const copyToClipboard = () => {
 		Clipboard.setString(address);
 	};
 	return (
 		<View>
-			<NavBar title="Recive" backButton={back} />
+			<NavBar title="Recive" navigation={navigation} />
 			<Text>{address}</Text>
 			<QrCode address={address} />
 			<Button icon="clipboard" onPress={copyToClipboard}>
