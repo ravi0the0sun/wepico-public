@@ -3,7 +3,7 @@ import { Button } from 'react-native-paper';
 import { View, StyleSheet, Image, Text } from 'react-native';
 
 export default function WelcomeScreen({ navigation, generateAccount }) {
-	const doge = require('../../assets/doge2.png');
+	const doge = require('../../assets/doge.png');
 	return (
 		<View style={style.container}>
 			<Image source={doge} style={style.img} />

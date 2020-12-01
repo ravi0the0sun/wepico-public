@@ -2,30 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 
+import dogesay from '../../common/config/dogesay.config';
+
 export default function LoadingScreen() {
 	const [say, setSay] = useState('BORK');
-	const dogeSay = [
-		`wow`,
-		`tinfoil hat`,
-		`what are you doing`,
-		`wow very biscits`,
-		`straigt to my thigh`,
-		`very Speed`,
-		`w-a-p-e`,
-		`keep your hands away from me`,
-		`Concern`,
-		`so scare`,
-		`so mystery`,
-		`much delishush`,
-		`So Sochi`,
-		`i looc cool`,
-	];
 
-	const listLength = dogeSay.length;
+	const listLength = dogesay.length;
 	const doge = require('../../assets/doge2.png');
 
 	useEffect(() => {
-		setSay(dogeSay[Math.floor(Math.random() * listLength)]);
+		setSay(dogesay[Math.floor(Math.random() * listLength)]);
 	}, []);
 
 	return (
