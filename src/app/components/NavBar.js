@@ -8,8 +8,8 @@ export default function NavBar({ title, sub, action, navigation, icon }) {
 	return (
 		<Appbar.Header style={style.appbar} color={'#13d777'}>
 			{navigation && (
-				<Appbar.BackAction
-					icon={'chevron-back'}
+				<Appbar.Action
+					icon={'chevron-back-outline'}
 					onPress={() => navigation.goBack()}
 					color={'#13d777'}
 				/>

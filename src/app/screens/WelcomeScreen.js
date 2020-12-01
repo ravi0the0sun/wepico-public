@@ -3,9 +3,10 @@ import { Button } from 'react-native-paper';
 import { View, StyleSheet, Image, Text } from 'react-native';
 
 export default function WelcomeScreen({ navigation, generateAccount }) {
+	const doge = require('../../assets/doge2.png');
 	return (
 		<View style={style.container}>
-			<Image source={require('../assets/doge.png')} style={style.img} />
+			<Image source={doge} style={style.img} />
 			<Text style={style.lable}>Let's get started</Text>
 			<Button
 				mode={'contained'}
@@ -38,8 +39,8 @@ const style = StyleSheet.create({
 	},
 	img: {
 		marginBottom: '10%',
-		width: 200,
-		height: 200,
+		width: 250,
+		height: 250,
 	},
 	btnLable: {
 		color: '#ffffff',
@@ -54,7 +55,7 @@ const style = StyleSheet.create({
 	lable: {
 		color: '#ffffff',
 		fontSize: 18,
-		marginBottom: '20%',
+		marginBottom: '10%',
 	},
 	btn: {
 		marginBottom: '5%',
