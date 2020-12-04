@@ -11,8 +11,9 @@ module.exports = {
 				safe: false,
 				allowUndefined: true,
 			},
-			'react-native-reanimated/plugin',
 		],
+		'transform-remove-console',
+		'react-native-reanimated/plugin',
 	],
 	env: {
 		production: {
