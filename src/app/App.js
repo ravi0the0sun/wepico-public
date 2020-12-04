@@ -21,14 +21,14 @@ export default function App() {
 		generateAccount,
 		importPrivate,
 		account,
-		noAccount,
+		isAccount,
 	] = useAccount(null);
 
 	return (
 		<NavigationContainer theme={theme}>
 			{!account ? (
 				<WelcomeScreenStack
-					noAccount={noAccount}
+					isAccount={isAccount}
 					generateAccount={generateAccount}
 					importPrivate={importPrivate}
 				/>

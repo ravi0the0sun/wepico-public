@@ -10,11 +10,11 @@ import LoadingScreen from '../screens/LoadingScreen';
 const Stack = createStackNavigator();
 
 export default function WelcomeScreenStack({
-	noAccount,
+	isAccount,
 	generateAccount,
 	importPrivate,
 }) {
-	if (!noAccount) {
+	if (!isAccount) {
 		return <LoadingScreen />;
 	}
 	return (

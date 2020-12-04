@@ -11,24 +11,24 @@ import {
 
 export function useAccount(initialValue) {
 	const [account, setAccount] = useState(initialValue);
-	const [noAccount, setNoAccount] = useState(false);
+	const [isAccount, setIsAccount] = useState(false);
 	const { setItem, getItem, removeItem } = useAsyncStorage('@p_key');
 
 	const generateAccount = async () => {
-		setNoAccount(false);
+		setIsAccount(false);
 		try {
 			const acc = createAccount();
 			acc.balance = await getBalance(acc.address);
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
-			setNoAccount(true);
+			setIsAccount(true);
 			console.log(err);
 		}
 	};
 
 	const accessingStore = async () => {
-		setNoAccount(false);
+		setIsAccount(false);
 		try {
 			const encryptString = await getItem();
 			if (encryptString) {
@@ -36,10 +36,10 @@ export function useAccount(initialValue) {
 				acc.balance = await getBalance(acc.address);
 				setAccount(acc);
 			} else {
-				setNoAccount(true);
+				setIsAccount(true);
 			}
 		} catch (err) {
-			setNoAccount(true);
+			setIsAccount(true);
 			console.log(err);
 		}
 	};
@@ -48,22 +48,22 @@ export function useAccount(initialValue) {
 		setAccount(null);
 		try {
 			await removeItem();
-			setNoAccount(true);
+			setIsAccount(true);
 			setAccount(null);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	const importPrivate = async (privateKey) => {
-		setNoAccount(false);
+	const importPrivate = async privateKey => {
+		setIsAccount(false);
 		try {
 			const acc = privateToAccount(privateKey);
 			acc.balance = await getBalance(acc.address);
 			await setItem(encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
-			setNoAccount(true);
+			setIsAccount(true);
 			console.log(err);
 		}
 	};
@@ -71,5 +71,5 @@ export function useAccount(initialValue) {
 	useEffect(() => {
 		accessingStore();
 	}, []);
-	return [removeData, generateAccount, importPrivate, account, noAccount];
+	return [removeData, generateAccount, importPrivate, account, isAccount];
 }

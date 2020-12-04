@@ -1,7 +1,6 @@
 export default dogesay = [
 	`wow`,
 	`tinfoil hat`,
-	`what are you doing`,
 	`wow very biscits`,
 	`straigt to my thigh`,
 	`very Speed`,
@@ -9,10 +8,8 @@ export default dogesay = [
 	`keep your hands away from me`,
 	`Concern`,
 	`so scare`,
-	`so mystery`,
 	`much delishush`,
 	`So Sochi`,
-	`i looc cool`,
 	`BORK`,
 	`Dis is de way`,
 	`Bitconneeeeeeect`,
