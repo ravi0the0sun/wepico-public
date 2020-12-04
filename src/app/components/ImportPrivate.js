@@ -15,7 +15,7 @@ export default function ImportPrivate({ importPrivate }) {
 			/>
 			<Button
 				disabled={!value}
-				icon={'paper-plane'}
+				icon={'log-in'}
 				onPress={() => importPrivate(value)}>
 				Import Your Account
 			</Button>

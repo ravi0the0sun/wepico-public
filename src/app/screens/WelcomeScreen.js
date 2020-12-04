@@ -19,7 +19,7 @@ export default function WelcomeScreen({ navigation, generateAccount }) {
 			</Button>
 			<Button
 				mode={'contained'}
-				icon={'paper-plane'}
+				icon={'log-in'}
 				onPress={() => navigation.navigate('Import')}
 				labelStyle={style.btnLable}
 				contentStyle={style.content}
