@@ -14,10 +14,10 @@ export default function SettingTab({ removeData, privateKey }) {
 			<NavBar title="settings" sub={false} />
 			<View>
 				<Text>Settings!</Text>
-				<Button icon="trash" onPress={removeData}>
+				<Button icon={'trash'} onPress={removeData}>
 					Delete Account
 				</Button>
-				<Button icon="clipboard" onPress={copyToClipboard}>
+				<Button icon={'clipboard'} onPress={copyToClipboard}>
 					Copy Private Key
 				</Button>
 			</View>

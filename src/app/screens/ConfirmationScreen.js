@@ -20,7 +20,7 @@ export default function ConfirmationScreen({ route, navigation }) {
 			<Text>AMOUNT: {amount} ETH</Text>
 			<Text>GAS: {gas} Gwei</Text>
 			<Button
-				icon="checkmark-circle"
+				icon={'checkmark-circle'}
 				onPress={() =>
 					navigation.navigate('Send', {
 						rawTransaction: signedTransaction.rawTransaction,

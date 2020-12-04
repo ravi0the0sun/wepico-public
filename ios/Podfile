@@ -22,12 +22,3 @@ target 'wepico' do
     flipper_post_install(installer)
   end
 end
-
-target 'wepico-tvOS' do
-  # Pods for wepico-tvOS
-
-  target 'wepico-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end

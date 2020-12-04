@@ -24,7 +24,7 @@ export default function QRCodeScreen({ route, navigation }) {
 				<Text style={styles.text}>Scan address</Text>
 				<QrCode style={styles.qrcode} address={address} />
 				<Button
-					icon="clipboard"
+					icon={'clipboard'}
 					onPress={copyToClipboard}
 					mode={'contained'}
 					contentStyle={styles.content}

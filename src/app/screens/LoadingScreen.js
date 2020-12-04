@@ -5,7 +5,7 @@ import { ActivityIndicator } from 'react-native-paper';
 import dogesay from '../../common/config/dogesay.config';
 
 export default function LoadingScreen() {
-	const [say, setSay] = useState('BORK');
+	const [say, setSay] = useState('');
 
 	const listLength = dogesay.length;
 	const doge = require('../../assets/doge2.png');

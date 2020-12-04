@@ -10,7 +10,7 @@ export default function WelcomeScreen({ navigation, generateAccount }) {
 			<Text style={style.lable}>Let's get started</Text>
 			<Button
 				mode={'contained'}
-				icon="key"
+				icon={'key'}
 				onPress={generateAccount}
 				labelStyle={style.btnLable}
 				contentStyle={style.content}
@@ -19,7 +19,7 @@ export default function WelcomeScreen({ navigation, generateAccount }) {
 			</Button>
 			<Button
 				mode={'contained'}
-				icon="log-in"
+				icon={'paper-plane'}
 				onPress={() => navigation.navigate('Import')}
 				labelStyle={style.btnLable}
 				contentStyle={style.content}
