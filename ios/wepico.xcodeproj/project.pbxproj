@@ -13,6 +13,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2333915F185CCBFB7E425377 /* libPods-wepico.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A42F8B962C952D8162D1B49E /* libPods-wepico.a */; };
 		2CE94D11E9400F462CC797DD /* libPods-wepico-wepicoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D0C2EF930234DCCFE4C51C /* libPods-wepico-wepicoTests.a */; };
+		414D3B8F257A5C52003C6732 /* ComicSansMS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 414D3B8E257A5C52003C6732 /* ComicSansMS.ttf */; };
+		414D3B90257A5C52003C6732 /* ComicSansMS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 414D3B8E257A5C52003C6732 /* ComicSansMS.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,7 @@
 		1811A599678641E689E94D92 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		2E214843D41B4C688A4952F0 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		3C6339F920884F5396D44A51 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		414D3B8E257A5C52003C6732 /* ComicSansMS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicSansMS.ttf; path = ../src/assets/fonts/ComicSansMS.ttf; sourceTree = "<group>"; };
 		4DD2D7F28851C29863E582E1 /* Pods-wepico-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-wepico-tvOSTests/Pods-wepico-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		59C0C8353F89D28D45175B26 /* Pods-wepico-wepicoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico-wepicoTests.debug.xcconfig"; path = "Target Support Files/Pods-wepico-wepicoTests/Pods-wepico-wepicoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E28CE6A58B4464ABEA63D23 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		2094EC1B19464B959DEF67C7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				414D3B8E257A5C52003C6732 /* ComicSansMS.ttf */,
 				964C56F8485644E280AAD61B /* AntDesign.ttf */,
 				DE47D0480D7F44EDAD72EB44 /* Entypo.ttf */,
 				3C6339F920884F5396D44A51 /* EvilIcons.ttf */,
@@ -289,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414D3B90257A5C52003C6732 /* ComicSansMS.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				414D3B8F257A5C52003C6732 /* ComicSansMS.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
