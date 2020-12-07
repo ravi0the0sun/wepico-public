@@ -8,29 +8,55 @@ import QrCode from '../components/QrCode';
 
 export default function QRCodeScreen({ route, navigation }) {
 	const { address } = route.params;
-	const back = (
-		<Appbar.BackAction
-			onPress={() => navigation.navigate('Home')}
-			color={'#13d777'}
-		/>
-	);
+
 	const copyToClipboard = () => {
 		Clipboard.setString(address);
 	};
 	return (
-		<View>
-			<NavBar title="Recive" backButton={back} />
-			<Text>{address}</Text>
-			<QrCode address={address} />
-			<Button icon="clipboard" onPress={copyToClipboard}>
-				Copy To Clipboard
-			</Button>
-		</View>
+		<>
+			<NavBar
+				title="Recive"
+				navigation={navigation}
+				action={() => console.log('scan')}
+				icon={'scan'}
+			/>
+			<View style={styles.inner}>
+				<Text style={styles.text}>Scan address</Text>
+				<QrCode style={styles.qrcode} address={address} />
+				<Button
+					icon={'clipboard'}
+					onPress={copyToClipboard}
+					mode={'contained'}
+					contentStyle={styles.content}
+					labelStyle={styles.btnLable}>
+					Copy To Clipboard
+				</Button>
+			</View>
+		</>
 	);
 }
 
 const styles = StyleSheet.create({
-	bgColor: {
-		backgroundColor: '#101116',
+	inner: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	btnLable: {
+		color: '#ffffff',
+		fontSize: 16.36,
+		textAlign: 'center',
+		textTransform: 'capitalize',
+	},
+	content: {
+		height: 52,
+		width: 283,
+	},
+	text: {
+		fontSize: 20,
+		marginBottom: '5%',
+	},
+	qrcode: {
+		marginBottom: '5%',
 	},
 });

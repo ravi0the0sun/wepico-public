@@ -4,11 +4,17 @@ import { Appbar } from 'react-native-paper';
 
 import { NETWORK } from '../../common/config/config';
 
-export default function NavBar({ title, sub, action, backButton }) {
+export default function NavBar({ title, sub, action, navigation, icon }) {
 	return (
 		<Appbar.Header style={style.appbar} color={'#13d777'}>
-			{backButton}
-			{!backButton && Platform.OS === 'android' && (
+			{navigation && (
+				<Appbar.Action
+					icon={'chevron-back-outline'}
+					onPress={() => navigation.goBack()}
+					color={'#13d777'}
+				/>
+			)}
+			{!navigation && Platform.OS === 'android' && (
 				<Appbar.Action disable={true} />
 			)}
 			<Appbar.Content
@@ -27,7 +33,9 @@ export default function NavBar({ title, sub, action, backButton }) {
 				color={'#13d777'}
 			/>
 			{!action && Platform.OS === 'android' && <Appbar.Action disable={true} />}
-			{action}
+			{action && icon && (
+				<Appbar.Action icon={icon} onPress={action} color={'#13d777'} />
+			)}
 		</Appbar.Header>
 	);
 }

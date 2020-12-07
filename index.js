@@ -10,8 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const theme = {
 	...DefaultTheme,
-	dark: true,
-	roundness: 4,
+	roundness: 10,
 	colors: {
 		...DefaultTheme.colors,
 		primary: '#13d777',

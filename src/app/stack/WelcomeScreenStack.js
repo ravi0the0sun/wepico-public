@@ -1,34 +1,31 @@
 import React from 'react';
-import { ActivityIndicator, Colors } from 'react-native-paper';
+import { View, Text, Image } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import CreateAccountScreen from '../screens/CreateAccountScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 import ImportPrivateScreen from '../screens/ImportPrivateScreen';
+import LoadingScreen from '../screens/LoadingScreen';
 
 const Stack = createStackNavigator();
 
 export default function WelcomeScreenStack({
-	noAccount,
+	isAccount,
 	generateAccount,
 	importPrivate,
 }) {
-	if (!noAccount) {
-		return (
-			<ActivityIndicator
-				style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-				animating={true}
-			/>
-		);
+	if (!isAccount) {
+		return <LoadingScreen />;
 	}
 	return (
 		<Stack.Navigator initialRouteName="Welcome" headerMode="none">
 			<Stack.Screen name="Welcome">
-				{(props) => (
-					<CreateAccountScreen {...props} generateAccount={generateAccount} />
+				{props => (
+					<WelcomeScreen {...props} generateAccount={generateAccount} />
 				)}
 			</Stack.Screen>
 			<Stack.Screen name="Import">
-				{(props) => (
+				{props => (
 					<ImportPrivateScreen {...props} importPrivate={importPrivate} />
 				)}
 			</Stack.Screen>

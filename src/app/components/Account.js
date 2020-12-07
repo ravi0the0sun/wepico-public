@@ -18,11 +18,12 @@ export default function Account({ account, navigation }) {
 				{account.privateKey}
 			</Text>
 			<Button
-				icon="paper-plane"
+				icon={'paper-plane'}
 				onPress={() =>
 					navigation.navigate('Send', { privateKey: account.privateKey })
-				}
-			>Send Eth</Button>
+				}>
+				Send Eth
+			</Button>
 		</View>
 	);
 }

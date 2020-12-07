@@ -10,18 +10,16 @@ export default function TransactionTab({ account, navigation }) {
 	const [[transactionList], refreshing, pullToRefresh] = useTransactionReceipt(
 		account.address
 	);
-	const action = (
-		<Appbar.Action
-			icon="arrow-redo-circle-outline"
-			onPress={() =>
-				navigation.navigate('Send', { privateKey: account.privateKey })
-			}
-			color={'#13d777'}
-		/>
-	);
 	return (
 		<>
-			<NavBar title="transaction" sub={true} action={action} />
+			<NavBar
+				title="transaction"
+				sub={true}
+				action={() =>
+					navigation.navigate('Send', { privateKey: account.privateKey })
+				}
+				icon={'arrow-redo-circle-outline'}
+			/>
 			<View>
 				{transactionList ? (
 					<TransactionList

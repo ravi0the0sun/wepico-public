@@ -11,7 +11,7 @@ const theme = {
 	...DefaultTheme,
 	colors: {
 		...DefaultTheme.colors,
-		background: '#3c3f50',
+		background: '#44464F',
 	},
 };
 
@@ -21,14 +21,14 @@ export default function App() {
 		generateAccount,
 		importPrivate,
 		account,
-		noAccount,
+		isAccount,
 	] = useAccount(null);
 
 	return (
 		<NavigationContainer theme={theme}>
 			{!account ? (
 				<WelcomeScreenStack
-					noAccount={noAccount}
+					isAccount={isAccount}
 					generateAccount={generateAccount}
 					importPrivate={importPrivate}
 				/>

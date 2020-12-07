@@ -10,12 +10,12 @@ export default function ImportPrivate({ importPrivate }) {
 			<TextInput
 				placeholder="Import you account using PrivateKey"
 				style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-				onChangeText={(text) => onChangeText(text)}
+				onChangeText={text => onChangeText(text)}
 				value={value}
 			/>
 			<Button
 				disabled={!value}
-				icon="log-in"
+				icon={'log-in'}
 				onPress={() => importPrivate(value)}>
 				Import Your Account
 			</Button>

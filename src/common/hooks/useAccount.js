@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useAsyncStorage } from '@react-native-community/async-storage';
+import AsyncStorage, {
+	useAsyncStorage,
+} from '@react-native-async-storage/async-storage';
 
 import {
 	createAccount,
@@ -11,35 +13,45 @@ import {
 
 export function useAccount(initialValue) {
 	const [account, setAccount] = useState(initialValue);
-	const [noAccount, setNoAccount] = useState(false);
-	const { setItem, getItem, removeItem } = useAsyncStorage('@p_key');
+	const [isAccount, setIsAccount] = useState(false);
+	// currently the useAsyncStorage is creating issues with jest so opt-out untill they fix it
+	// const { setItem, getItem, removeItem } = useAsyncStorage('@p_key');
+
+	//
+	const removeItem = async () => {
+		try {
+			await AsyncStorage.removeItem('@p_key');
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	const generateAccount = async () => {
-		setNoAccount(false);
+		setIsAccount(false);
 		try {
 			const acc = createAccount();
 			acc.balance = await getBalance(acc.address);
-			await setItem(encryptAccount(acc.privateKey));
+			await AsyncStorage.setItem('@p_key', encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
-			setNoAccount(true);
+			setIsAccount(true);
 			console.log(err);
 		}
 	};
 
 	const accessingStore = async () => {
-		setNoAccount(false);
+		setIsAccount(false);
 		try {
-			const encryptString = await getItem();
+			const encryptString = await AsyncStorage.getItem('@p_key');
 			if (encryptString) {
 				const acc = decryptAccount(encryptString);
 				acc.balance = await getBalance(acc.address);
 				setAccount(acc);
 			} else {
-				setNoAccount(true);
+				setIsAccount(true);
 			}
 		} catch (err) {
-			setNoAccount(true);
+			setIsAccount(true);
 			console.log(err);
 		}
 	};
@@ -48,22 +60,22 @@ export function useAccount(initialValue) {
 		setAccount(null);
 		try {
 			await removeItem();
-			setNoAccount(true);
+			setIsAccount(true);
 			setAccount(null);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	const importPrivate = async (privateKey) => {
-		setNoAccount(false);
+	const importPrivate = async privateKey => {
+		setIsAccount(false);
 		try {
 			const acc = privateToAccount(privateKey);
 			acc.balance = await getBalance(acc.address);
-			await setItem(encryptAccount(acc.privateKey));
+			await AsyncStorage.setItem('@p_key', encryptAccount(acc.privateKey));
 			setAccount(acc);
 		} catch (err) {
-			setNoAccount(true);
+			setIsAccount(true);
 			console.log(err);
 		}
 	};
@@ -71,5 +83,5 @@ export function useAccount(initialValue) {
 	useEffect(() => {
 		accessingStore();
 	}, []);
-	return [removeData, generateAccount, importPrivate, account, noAccount];
+	return [removeData, generateAccount, importPrivate, account, isAccount];
 }

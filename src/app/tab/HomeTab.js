@@ -8,16 +8,14 @@ import Account from '../components/Account';
 
 export default function HomeTab({ account, navigation }) {
 	const { address } = account;
-	const action = (
-		<Appbar.Action
-			icon="qr-code-outline"
-			onPress={() => navigation.navigate('Recive', { address: address })}
-			color={'#13d777'}
-		/>
-	);
 	return (
 		<View>
-			<NavBar title="wallet" sub={true} action={action} />
+			<NavBar
+				title="wallet"
+				sub={true}
+				action={() => navigation.navigate('Recive', { address: address })}
+				icon={'qr-code-outline'}
+			/>
 			<View>
 				<Account account={account} navigation={navigation} />
 			</View>
