@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Appbar, Button } from 'react-native-paper';
 import CoinGecko from 'coingecko-api';
 

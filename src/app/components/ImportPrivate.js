@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
-import { Button } from 'react-native-paper';
+import { View, TextInput } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 export default function ImportPrivate({ importPrivate }) {
 	const [value, onChangeText] = useState('');

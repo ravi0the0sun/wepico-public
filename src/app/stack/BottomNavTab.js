@@ -7,6 +7,7 @@ import HomeTab from '../tab/HomeTab';
 import TransactionTab from '../tab/TransactionTab';
 import MarketTab from '../tab/MarketTab';
 import SettingTab from '../tab/SettingTab';
+import MessageTab from '../tab/MessageTab';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -26,6 +27,8 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 						iconName = focused ? 'wallet' : 'wallet-outline';
 					} else if (route.name === 'Transaction') {
 						iconName = focused ? 'swap-vertical' : 'swap-vertical-outline';
+					} else if (route.name === 'Message') {
+						iconName = focused ? 'at-circle' : 'at-circle-outline';
 					} else if (route.name === 'Market') {
 						iconName = focused ? 'trending-up' : 'trending-up-outline';
 					} else if (route.name === 'Settings') {
@@ -41,6 +44,9 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 			</Tab.Screen>
 			<Tab.Screen name="Transaction">
 				{props => <TransactionTab {...props} account={account} />}
+			</Tab.Screen>
+			<Tab.Screen name="Message">
+				{props => <MessageTab {...props} account={account} />}
 			</Tab.Screen>
 			<Tab.Screen name="Market">
 				{props => <MarketTab {...props} account={account} />}

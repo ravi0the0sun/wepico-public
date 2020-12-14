@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { ActivityIndicator } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { Text, ActivityIndicator } from 'react-native-paper';
 
 export default function TransactionBlock({ showBlock, blockInfo }) {
 	if (!showBlock) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
-import { ActivityIndicator } from 'react-native-paper';
+import { View, Image, StyleSheet } from 'react-native';
+import { ActivityIndicator, Text } from 'react-native-paper';
 
 import dogesay from '../../common/config/dogesay.config';
 

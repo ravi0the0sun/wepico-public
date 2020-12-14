@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Appbar, Button } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { Text, Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 import Transaction from '../components/Transaction';

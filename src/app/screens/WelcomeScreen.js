@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-native-paper';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { Button, Text } from 'react-native-paper';
+import { View, StyleSheet, Image } from 'react-native';
 
 export default function WelcomeScreen({ navigation, generateAccount }) {
 	const doge = require('../../assets/doge.png');

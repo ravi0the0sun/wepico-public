@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { ActivityIndicator, Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';

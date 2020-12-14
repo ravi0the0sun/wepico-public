@@ -1,6 +1,4 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import { ActivityIndicator } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import WelcomeScreen from '../screens/WelcomeScreen';

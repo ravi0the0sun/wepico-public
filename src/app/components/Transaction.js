@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
-import { Button, ActivityIndicator } from 'react-native-paper';
+import { View, TextInput } from 'react-native';
+import { Text, Button, ActivityIndicator } from 'react-native-paper';
 
 import useGetGas from '../../common/hooks/useGetGas';
 import useTransactionPayload from '../../common/hooks/useTransactionPayload';
