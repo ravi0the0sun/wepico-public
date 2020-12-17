@@ -16,6 +16,7 @@ const provider = new Web3(
 		`https://eth-${NETWORK}.alchemyapi.io/v2/${ALCHEMY_API_KEY}`
 	)
 );
+
 const infura_provider = new Web3(
 	new Web3.providers.HttpProvider(
 		`https://${NETWORK}.infura.io/v3/${INFURA_API_KEY}`
