@@ -20,6 +20,7 @@ export default function SendScreen({ account, navigation, route }) {
 				action={() => navigation.navigate('Scan')}
 				icon={'scan'}
 			/>
+			<Text>Address: {route?.params?.address && route.params.address}</Text>
 		</View>
 	);
 }
