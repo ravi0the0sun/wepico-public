@@ -32,7 +32,7 @@ function validatePrivateKey(privateKey) {
 	}
 }
 
-function validateAccount(address) {
+export function validateAccount(address) {
 	try {
 		const checkSumAddress = provider.utils.toChecksumAddress(address);
 		if (!provider.utils.isAddress(checkSumAddress)) {

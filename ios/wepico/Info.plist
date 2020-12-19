@@ -13,6 +13,11 @@
 			</array>
 		</dict>
 	</array>
+
+	<!-- 🚨 Keep only the permissions used in your app 🚨 -->
+	<key>NSCameraUsageDescription</key>
+  	<string>Permission to use camera to scan QRcode</string>
+	
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

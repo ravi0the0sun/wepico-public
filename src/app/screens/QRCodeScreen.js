@@ -18,7 +18,7 @@ export default function QRCodeScreen({ route, navigation }) {
 			<NavBar
 				title="Recive"
 				navigation={navigation}
-				action={() => console.log('scan')}
+				action={() => navigation.navigate('Scan')}
 				icon={'scan'}
 			/>
 			<View style={styles.inner}>
