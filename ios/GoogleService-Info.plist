@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>668665808241-7ru2js3n768l0pgdhnh6q67t81ss33jk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.668665808241-7ru2js3n768l0pgdhnh6q67t81ss33jk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>668665808241-b2dj4pct5ejggg3c0uksi3ai7ilqrvc6.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBHdqnjw0oWskqw9BAa2HirwmEqfhyVwiM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>668665808241</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.wepico</string>
+	<key>PROJECT_ID</key>
+	<string>wepico-87fc4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wepico-87fc4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:668665808241:ios:775ff1ed73b4797bac22d0</string>
+	<key>DATABASE_URL</key>
+	<string>https://wepico-87fc4.firebaseio.com</string>
+</dict>
+</plist>

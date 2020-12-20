@@ -9,9 +9,11 @@ import WelcomeScreenStack from './stack/WelcomeScreenStack';
 
 const theme = {
 	...DefaultTheme,
+	dark: true,
 	colors: {
 		...DefaultTheme.colors,
 		background: '#44464F',
+		text: '#ffffff',
 	},
 };
 

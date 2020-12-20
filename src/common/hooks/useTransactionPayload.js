@@ -8,7 +8,7 @@ export default function useTransactionPayload(route) {
 	const [showBlock, setShowBlock] = useState(false);
 	const [blockInfo, setBlockInfo] = useState(null);
 
-	const transferTranasaction = async (privateKey) => {
+	const transferTranasaction = async privateKey => {
 		try {
 			return await signTransaction(address, privateKey, amount);
 		} catch (err) {
@@ -26,13 +26,13 @@ export default function useTransactionPayload(route) {
 	}
 
 	useEffect(() => {
-		if (route.params?.rawTransaction) {
+		if (route?.params?.rawTransaction) {
 			setAddress('');
 			setAmount('');
 			setShowBlock(true);
 			passingTransaction(route.params.rawTransaction);
 		}
-	}, [route.params?.rawTransaction]);
+	}, [route?.params?.rawTransaction]);
 
 	return [
 		address,

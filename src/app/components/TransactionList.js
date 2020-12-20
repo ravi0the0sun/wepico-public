@@ -1,13 +1,12 @@
 import React from 'react';
 import {
 	View,
-	Text,
 	FlatList,
 	SafeAreaView,
 	ScrollView,
 	StyleSheet,
 } from 'react-native';
-import { List } from 'react-native-paper';
+import { Text, List } from 'react-native-paper';
 import { weiToEth, toChecksumAddress } from '../../common/service/ethService';
 
 export default function TransactionList({

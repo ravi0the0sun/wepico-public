@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Appbar, Button } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { Text, Appbar, Button } from 'react-native-paper';
 import Clipboard from '@react-native-community/clipboard';
 
 import NavBar from '../components/NavBar';
@@ -10,6 +10,7 @@ export default function QRCodeScreen({ route, navigation }) {
 	const { address } = route.params;
 
 	const copyToClipboard = () => {
+		console.log(address);
 		Clipboard.setString(address);
 	};
 	return (
@@ -17,7 +18,7 @@ export default function QRCodeScreen({ route, navigation }) {
 			<NavBar
 				title="Recive"
 				navigation={navigation}
-				action={() => console.log('scan')}
+				action={() => navigation.navigate('Scan')}
 				icon={'scan'}
 			/>
 			<View style={styles.inner}>

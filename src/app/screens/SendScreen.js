@@ -1,12 +1,15 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Appbar, Button } from 'react-native-paper';
+import React, { useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Text, Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
-import Transaction from '../components/Transaction';
 
-export default function SendScreen({ route, navigation }) {
-	const { privateKey } = route.params;
+export default function SendScreen({ account, navigation, route }) {
+	useEffect(() => {
+		if (route?.params?.address) {
+			console.log(route?.params?.address);
+		}
+	}, [route?.params?.address]);
 
 	return (
 		<View>
@@ -14,14 +17,10 @@ export default function SendScreen({ route, navigation }) {
 				navigation={navigation}
 				title="Send Eth"
 				sub={true}
-				action={() => navigation.navigate('Home')}
-				icon={'close-circle-outline'}
+				action={() => navigation.navigate('Scan')}
+				icon={'scan'}
 			/>
-			<Transaction
-				privateKey={privateKey}
-				navigation={navigation}
-				route={route}
-			/>
+			<Text>Address: {route?.params?.address && route.params.address}</Text>
 		</View>
 	);
 }

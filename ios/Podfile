@@ -1,9 +1,22 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
+# add the Firebase pod for Google Analytics
+pod 'Firebase/Messaging'
+pod 'Firebase/Storage'
+# add pods for any other desired Firebase products
+
+# https://firebase.google.com/docs/ios/setup#available-pods
+
 platform :ios, '10.0'
 
 target 'wepico' do
+  
+  # react-native-permission camera setup
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])

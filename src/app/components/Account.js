@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 export default function Account({ account, navigation }) {
 	return (
-		<View>
+		<View style={{ color: '#ffffff' }}>
 			<Text>Wallet</Text>
 			<Text>
 				<Text style={styles.text}>Address: </Text>
@@ -18,6 +18,7 @@ export default function Account({ account, navigation }) {
 				{account.privateKey}
 			</Text>
 			<Button
+				mode={'contained'}
 				icon={'paper-plane'}
 				onPress={() =>
 					navigation.navigate('Send', { privateKey: account.privateKey })

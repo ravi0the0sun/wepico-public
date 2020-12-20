@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { Text, Button } from 'react-native-paper';
 import Clipboard from '@react-native-community/clipboard';
 
 import NavBar from '../components/NavBar';

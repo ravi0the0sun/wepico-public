@@ -29,6 +29,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.wepico">
 
+    <!-- 🚨 Keep only the permissions used in your app 🚨 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
