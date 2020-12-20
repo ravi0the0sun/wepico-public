@@ -1,6 +1,6 @@
 {
   "name": "wepico",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "private": true,
   "scripts": {
     "hack": "rn-nodeify --install --hack && rm -rf rm -rf node_modules/react-native-udp/ios/CocoaAsyncSocket && rm -rf rm -rf node_modules/react-native-tcp/ios/CocoaAsyncSocket",

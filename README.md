@@ -10,10 +10,9 @@ npm install
 # then add .env file on the root folder and add ALCHEMY_API from Alchemy.
 npm run hack
 # rn-nodeify for injecting node globals in react native and removeing duplicate symbols error
-npm start
-# then run 
+# then run
 npm run android
-# or 
+# or
 npm run ios
 ```
 
