@@ -188,7 +188,7 @@ android {
 
 dependencies {
 
-    compile 'com.android.support:multidex:1.0.1' //enter the latest version
+    implementation 'com.android.support:multidex:1.0.1' //enter the latest version
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
 

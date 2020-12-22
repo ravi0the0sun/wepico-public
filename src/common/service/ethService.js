@@ -22,6 +22,13 @@ const infura_provider = new Web3(
 		`https://${NETWORK}.infura.io/v3/${INFURA_API_KEY}`
 	)
 );
+
+// const provider = new Web3(
+// 	new Web3.providers.WebsocketProvider(
+// 		`wss://${NETWORK}.infura.io/v3/${INFURA_API_KEY}`
+// 	)
+// );
+
 const local_provider = new Web3(
 	new Web3.providers.HttpProvider(`http://localhost:8545`)
 );
@@ -29,18 +36,6 @@ const local_provider = new Web3(
 function validatePrivateKey(privateKey) {
 	if (!privateKey.match(/^0x[0-9A-fa-f]{64}$/)) {
 		throw new Error('Invalid privateKey');
-	}
-}
-
-export function validateAccount(address) {
-	try {
-		const checkSumAddress = provider.utils.toChecksumAddress(address);
-		if (!provider.utils.isAddress(checkSumAddress)) {
-			throw new Error();
-		}
-		return checkSumAddress;
-	} catch (err) {
-		throw new Error('Invalid Address');
 	}
 }
 
@@ -54,6 +49,18 @@ function validateAmount(amount) {
 
 function toEther(wei) {
 	return provider.utils.fromWei(wei, 'ether');
+}
+
+function validateAccount(address) {
+	try {
+		const checkSumAddress = provider.utils.toChecksumAddress(address);
+		if (!provider.utils.isAddress(checkSumAddress)) {
+			throw new Error();
+		}
+		return checkSumAddress;
+	} catch (err) {
+		throw new Error('Invalid Address');
+	}
 }
 
 export function createAccount() {
@@ -152,3 +159,5 @@ export function weiToEth(wei) {
 export function toChecksumAddress(address) {
 	return provider.utils.toChecksumAddress(address);
 }
+
+export { validateAccount };

@@ -5,7 +5,6 @@ export default dogesay = [
 	`straigt to my thigh`,
 	`very Speed`,
 	`w-a-p-e`,
-	`keep your hands away from me`,
 	`Concern`,
 	`so scare`,
 	`much delishush`,
