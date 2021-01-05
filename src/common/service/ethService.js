@@ -9,6 +9,10 @@ import {
 	password,
 } from '../config/config';
 
+
+import bip39 from 'react-native-bip39'
+import { hdkey } from 'ethereumjs-wallet'
+
 const GAS_LIMIT = 21000;
 
 const provider = new Web3(
@@ -56,8 +60,8 @@ function toEther(wei) {
 	return provider.utils.fromWei(wei, 'ether');
 }
 
-export function createAccount() {
-	return provider.eth.accounts.create();
+export async function createAccount() {
+	return await provider.eth.accounts.create();
 }
 
 export async function currentBlockNumber() {
@@ -66,6 +70,21 @@ export async function currentBlockNumber() {
 	} catch (err) {
 		throw new Error(err.message);
 	}
+}
+
+export async function generateAddressesFromSeed(count) {
+	let seed = await bip39.generateMnemonic(256);
+	let hdwallet = hdkey.fromMasterSeed(seed);
+	let wallet_hdpath = "m/44'/60'/0'/0/";
+
+	let accounts = [];
+	for (let i = 0; i < count; i++) {
+		let wallet = hdwallet.derivePath(wallet_hdpath + i).getWallet();
+		let address = "0x" + wallet.getAddress().toString("hex");
+		let privateKey = wallet.getPrivateKey().toString("hex");
+		accounts.push({ address: address, privateKey: privateKey });
+	}
+	return accounts;
 }
 
 export function privateToAccount(pk) {
@@ -97,10 +116,13 @@ export function decryptAccount(encryptString) {
 // }
 
 export async function getBalance(address) {
+	console.log('add',address);
 	try {
 		const wei = await provider.eth.getBalance(address);
+		console.log('b wei', wei);
 		return toEther(wei);
 	} catch (err) {
+		console.log('ddd',err);
 		throw new Error('Error getting Balance');
 	}
 }

@@ -29,7 +29,8 @@ export function useAccount(initialValue) {
 	const generateAccount = async () => {
 		setIsAccount(false);
 		try {
-			const acc = createAccount();
+			const acc = await createAccount();
+			console.log('address', acc);
 			acc.balance = await getBalance(acc.address);
 			await AsyncStorage.setItem('@p_key', encryptAccount(acc.privateKey));
 			setAccount(acc);
