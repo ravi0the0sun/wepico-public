@@ -44,8 +44,9 @@ export function useAccount(initialValue) {
 		setIsAccount(false);
 		try {
 			const encryptString = await AsyncStorage.getItem('@p_key');
+			console.log('encryptString', encryptString);
 			if (encryptString) {
-				const acc = decryptAccount(encryptString);
+				const acc = await decryptAccount(encryptString);
 				acc.balance = await getBalance(acc.address);
 				setAccount(acc);
 			} else {
