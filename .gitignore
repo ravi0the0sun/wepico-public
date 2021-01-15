@@ -62,3 +62,6 @@ buck-out/
 
 .vscode
 
+ios/wepico/GoogleService-Info.plist
+android/app/google-services.json
+

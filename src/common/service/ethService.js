@@ -9,29 +9,36 @@ import {
 	password,
 } from '../config/config';
 
+
+// import bip39 from 'react-native-bip39'
+//@TODO make this work with mnemonic words
+// import bip39 from 'react-native-bip39-new'//make this new package with PR https://github.com/novalabio/react-native-bip39/pull/1/files
+
+// import { hdkey } from 'ethereumjs-wallet'
+
 const GAS_LIMIT = 21000;
 
-const provider = new Web3(
+const chosenProvider = 2;
+
+const alchemy = new Web3(
 	new Web3.providers.HttpProvider(
 		`https://eth-${NETWORK}.alchemyapi.io/v2/${ALCHEMY_API_KEY}`
 	)
 );
 
-const infura_provider = new Web3(
+const infura = new Web3(
 	new Web3.providers.HttpProvider(
 		`https://${NETWORK}.infura.io/v3/${INFURA_API_KEY}`
 	)
 );
 
-// const provider = new Web3(
-// 	new Web3.providers.WebsocketProvider(
-// 		`wss://${NETWORK}.infura.io/v3/${INFURA_API_KEY}`
-// 	)
-// );
-
 const local_provider = new Web3(
 	new Web3.providers.HttpProvider(`http://localhost:8545`)
 );
+
+const providers = [ local_provider, alchemy, infura ]
+
+const provider = providers[chosenProvider];
 
 function validatePrivateKey(privateKey) {
 	if (!privateKey.match(/^0x[0-9A-fa-f]{64}$/)) {
@@ -75,6 +82,21 @@ export async function currentBlockNumber() {
 	}
 }
 
+// export async function generateAddressesFromSeed(count) {
+// 	let seed = await bip39.generateMnemonic(256);
+// 	let hdwallet = hdkey.fromMasterSeed(seed);
+// 	let wallet_hdpath = "m/44'/60'/0'/0/";
+
+// 	let accounts = [];
+// 	for (let i = 0; i < count; i++) {
+// 		let wallet = hdwallet.derivePath(wallet_hdpath + i).getWallet();
+// 		let address = "0x" + wallet.getAddress().toString("hex");
+// 		let privateKey = wallet.getPrivateKey().toString("hex");
+// 		accounts.push({ address: address, privateKey: privateKey });
+// 	}
+// 	return accounts;
+// }
+
 export function privateToAccount(pk) {
 	const privateKey = pk.startsWith('0x') ? pk : '0x' + pk;
 	validatePrivateKey(privateKey);
@@ -85,9 +107,10 @@ export function encryptAccount(pk) {
 	return JSON.stringify(provider.eth.accounts.encrypt(pk, password));
 }
 
-export function decryptAccount(encryptString) {
+export async function decryptAccount(encryptString) {
 	const encryptObj = JSON.parse(encryptString);
-	return provider.eth.accounts.decrypt(encryptObj, password);
+	console.log('found account', encryptObj, password);
+	return await provider.eth.accounts.decrypt(encryptObj, password);
 }
 
 // export function createWallet() {
@@ -104,10 +127,13 @@ export function decryptAccount(encryptString) {
 // }
 
 export async function getBalance(address) {
+	console.log('add',address);
 	try {
 		const wei = await provider.eth.getBalance(address);
+		console.log('b wei', wei);
 		return toEther(wei);
 	} catch (err) {
+		console.log('getBalance',err);
 		throw new Error('Error getting Balance');
 	}
 }

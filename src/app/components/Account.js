@@ -18,6 +18,7 @@ export default function Account({ account, navigation }) {
 				{account.privateKey}
 			</Text>
 			<Button
+				style={styles.button}
 				mode={'contained'}
 				icon={'paper-plane'}
 				onPress={() =>
@@ -33,4 +34,7 @@ const styles = StyleSheet.create({
 	text: {
 		fontWeight: 'bold',
 	},
+	button: {
+		margin: 8
+	}
 });

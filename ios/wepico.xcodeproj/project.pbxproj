@@ -44,10 +44,19 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = wepico/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = wepico/main.m; sourceTree = "<group>"; };
 		1811A599678641E689E94D92 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		201D023BF295BC0D2AECEE11 /* Pods-wepico-wepicoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico-wepicoTests.debug.xcconfig"; path = "Target Support Files/Pods-wepico-wepicoTests/Pods-wepico-wepicoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		414D3B8E257A5C52003C6732 /* ComicSansMS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicSansMS.ttf; path = ../src/assets/fonts/ComicSansMS.ttf; sourceTree = "<group>"; };
 		416C83EF258C29710023A36D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75E374C04044918C6CD8399A /* libPods-wepico.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wepico.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		411E8E2A25A6EBE100244B12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		414D3B8E257A5C52003C6732 /* ComicSansMS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicSansMS.ttf; path = ../src/assets/fonts/ComicSansMS.ttf; sourceTree = "<group>"; };
+		4DD2D7F28851C29863E582E1 /* Pods-wepico-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-wepico-tvOSTests/Pods-wepico-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		59C0C8353F89D28D45175B26 /* Pods-wepico-wepicoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico-wepicoTests.debug.xcconfig"; path = "Target Support Files/Pods-wepico-wepicoTests/Pods-wepico-wepicoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E3729D2C128585E19B19C2F /* libPods-wepico-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wepico-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		74933B04BA6A2E82889CDDF9 /* Pods-wepico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico.debug.xcconfig"; path = "Target Support Files/Pods-wepico/Pods-wepico.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> alpha
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = wepico/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF02A824BB06865CBEFF5ADA /* Pods-wepico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wepico.debug.xcconfig"; path = "Target Support Files/Pods-wepico/Pods-wepico.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -95,7 +104,7 @@
 		13B07FAE1A68108700A75B9A /* wepico */ = {
 			isa = PBXGroup;
 			children = (
-				416C83EF258C29710023A36D /* GoogleService-Info.plist */,
+				411E8E2A25A6EBE100244B12 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -258,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				414D3B90257A5C52003C6732 /* ComicSansMS.ttf in Resources */,
-				416C83F1258C29710023A36D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				416C83F0258C29710023A36D /* GoogleService-Info.plist in Resources */,
+				411E8E2B25A6EBE100244B12 /* GoogleService-Info.plist in Resources */,
 				414D3B8F257A5C52003C6732 /* ComicSansMS.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -553,7 +561,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.x5engine.wepico;
 				PRODUCT_NAME = wepico;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -576,7 +584,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.x5engine.wepico;
 				PRODUCT_NAME = wepico;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
