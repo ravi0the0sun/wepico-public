@@ -15,13 +15,11 @@ export default function HomeScreenStack({ removeData, account }) {
 	return (
 		<Stack.Navigator initialRouteName="Home" headerMode="none">
 			<Stack.Screen name="Home">
-				{props => (
-					<BottomNavTab {...props} removeData={removeData} account={account} />
-				)}
+				{props => <BottomNavTab {...props} />}
 			</Stack.Screen>
 			<Stack.Screen name={'Recive'} component={QRCodeScreen} />
 			<Stack.Screen name={'Send'}>
-				{props => <SendScreen {...props} account={account} />}
+				{props => <SendScreen {...props} />}
 			</Stack.Screen>
 			<Stack.Screen name={'Confirm'} component={ConfirmationScreen} />
 			<Stack.Screen name={'Draft'} component={NewMessage} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
 import { useAccount } from '../common/hooks/useAccount';
@@ -6,6 +6,8 @@ import { useAccount } from '../common/hooks/useAccount';
 import HomeScreenStack from './stack/HomeScreenStack';
 
 import WelcomeScreenStack from './stack/WelcomeScreenStack';
+
+export const WalletContext = createContext({});
 
 const theme = {
 	...DefaultTheme,
@@ -35,7 +37,9 @@ export default function App() {
 					importPrivate={importPrivate}
 				/>
 			) : (
-				<HomeScreenStack removeData={removeData} account={account} />
+				<WalletContext.Provider value={[removeData, account]}>
+					<HomeScreenStack removeData={removeData} account={account} />
+				</WalletContext.Provider>
 			)}
 		</NavigationContainer>
 	);

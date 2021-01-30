@@ -11,7 +11,7 @@ import MessageTab from '../tab/MessageTab';
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function BottomNavTab({ removeData, account, navigation }) {
+export default function BottomNavTab({ navigation }) {
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"
@@ -38,27 +38,17 @@ export default function BottomNavTab({ removeData, account, navigation }) {
 				},
 			})}>
 			<Tab.Screen name="Home">
-				{props => (
-					<HomeTab {...props} account={account} navigation={navigation} />
-				)}
+				{props => <HomeTab {...props} navigation={navigation} />}
 			</Tab.Screen>
 			<Tab.Screen name="Transaction">
-				{props => <TransactionTab {...props} account={account} />}
+				{props => <TransactionTab {...props} />}
 			</Tab.Screen>
 			<Tab.Screen name="Message">
-				{props => <MessageTab {...props} account={account} />}
+				{props => <MessageTab {...props} />}
 			</Tab.Screen>
-			<Tab.Screen name="Market">
-				{props => <MarketTab {...props} account={account} />}
-			</Tab.Screen>
+			<Tab.Screen name="Market">{props => <MarketTab {...props} />}</Tab.Screen>
 			<Tab.Screen name="Settings">
-				{props => (
-					<SettingTab
-						{...props}
-						removeData={removeData}
-						privateKey={account.privateKey}
-					/>
-				)}
+				{props => <SettingTab {...props} />}
 			</Tab.Screen>
 		</Tab.Navigator>
 	);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Appbar, Button } from 'react-native-paper';
 import Clipboard from '@react-native-community/clipboard';
@@ -6,8 +6,11 @@ import Clipboard from '@react-native-community/clipboard';
 import NavBar from '../components/NavBar';
 import QrCode from '../components/QrCode';
 
+import { WalletContext } from '../App';
+
 export default function QRCodeScreen({ route, navigation }) {
-	const { address } = route.params;
+	const [, account] = useContext(WalletContext);
+	const { address } = account;
 
 	const copyToClipboard = () => {
 		console.log(address);

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Appbar, Avatar } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 import Account from '../components/Account';
 
-export default function HomeTab({ account, navigation }) {
+import { WalletContext } from '../App';
+
+export default function HomeTab({ navigation }) {
+	const [, account] = useContext(WalletContext);
 	const { address } = account;
 	return (
 		<>

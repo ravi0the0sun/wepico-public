@@ -4,6 +4,8 @@ import { Text, Appbar } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 
+import { WalletContext } from '../App';
+
 export default function MessageTab({ navigation }) {
 	return (
 		<>

@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Appbar, Button } from 'react-native-paper';
 
 import NavBar from '../components/NavBar';
 
-export default function SendScreen({ account, navigation, route }) {
+import { WalletContext } from '../App';
+
+export default function SendScreen({ navigation, route }) {
+	const [, account] = useContext(WalletContext);
 	useEffect(() => {
 		if (route?.params?.address) {
 			console.log(route?.params?.address);
